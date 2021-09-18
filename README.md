@@ -1,7 +1,7 @@
 # Purdue ECE Course Study
 ### [Fall 2021](#Fall-2021)
 
-\\
+//
 
 ## Fall 2021
 * EBEC - Entry Level Python Prorgramming  
