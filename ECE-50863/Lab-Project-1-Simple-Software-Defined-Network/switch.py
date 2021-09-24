@@ -1,7 +1,7 @@
 #
 #    Author : Yuan-Yao Lou (Mike) <yylou@purdue.edu>
 #    Title  : Ph.D. student in ECE at Purdue University
-#    Date   : 2021/09/18
+#    Date   : 2021/09/23
 #
 
 
@@ -16,12 +16,27 @@ import datetime as DATETIME
 def get_timestamp():
     return '\n\n{0:%H:%M:%S.%f}'.format(DATETIME.datetime.now())
 
+def log(FILE, content):
+    """
+    Function
+    ----------
+    
+    
+
+    Parameters
+    ----------
+    
+    
+    """
+
+    FILE.write('{0}\n'.format(content))
+
 class Switch():
     """
     Class
     ----------
-    Switch clas
-        - Store and process neighbors' information
+    Switch class
+        - Store and process switch's neighbor nodes information
     """
 
     def __init__(self, fail_id):
@@ -35,20 +50,39 @@ class Switch():
         self.fail_id = str(fail_id)
 
     def bootstrap(self):
-        if not self.ready: 
-            for element in self.neighbor_info:
-                self.neighbor_status[element] = True
+        """
+        Function
+        ----------
+        For bootstrap process, mark all neighbors as alive
+        """
 
         self.ready = True
 
-    def check_switch(self, id):
+    def get_status(self, id):
+        """
+        Function
+        ----------
+        Get node's status (alive or offline) for:
+        (1) Switch alive condition (previously offline but receive KEEP_ALIVE to alive)
+        (2) TIMEOUT check
+        
+
+        Parameters
+        ----------
+        id : int
+            Node ID
+        """
+
         return self.neighbor_status[id]
 
     def update_neighbor(self, neighbor):
         """
         Function
         ----------
-        Update neighbor information
+        Update neighbor information from 'Resgister Response' message
+        (1) Update each neighbor's (host / port) information
+        (2) Give each switch a initial timestamp for TIMEOUT checking
+
 
         Parameters
         ----------
@@ -59,24 +93,72 @@ class Switch():
         self.neighbor_info = neighbor
         
         for element in self.neighbor_info:
-            self.neighbor_info[element]   = tuple(self.neighbor_info[element])
-            self.neighbor_msg[element]    = DATETIME.datetime.now()
+            if self.neighbor_info[element][0]:
+                self.neighbor_info[element]   = tuple(self.neighbor_info[element][1])
+                if element not in self.neighbor_status or self.neighbor_status[element] == True:
+                    self.neighbor_status[element] = True
+                self.neighbor_msg[element]    = DATETIME.datetime.now()
+            else:
+                self.neighbor_status[element] = False
 
     def update_neighbor_info(self, id, host, port):
+        """
+        Function
+        ----------
+        Update neighbor information from 'Keep Alive' message
+        (1) Update each neighbor's (host / port) information by id
+
+
+        Parameters
+        ----------
+        id : dict
+            Sender Switch ID
+        host : str
+            Sender Switch Host Name
+        port : str
+            Sender Switch port number
+        """
+
         self.neighbor_info[id] = (host, port)
 
     def update_neighbor_status(self, id, status):
+        """
+        Function
+        ----------
+        Update neighbor status from 'Keep Alive' message
+        (1) Update each neighbor's status (True: Alive, False: Offline)
+
+
+        Parameters
+        ----------
+        id : dict
+            Sender Switch ID
+        status : bool
+            Sender Switch Status
+        """
+
         self.neighbor_status[id] = status
 
     def update_neighbor_msg(self, id, timestamp):
+        """
+        Function
+        ----------
+        Update neighbor status from 'Keep Alive' message
+        (1) Update each neighbor's timestamp for status check
+
+
+        Parameters
+        ----------
+        id : dict
+            Sender Switch ID
+        timestamp : datetime object
+            Sender Switch TimeStamp
+        """
+
         self.neighbor_msg[id] = timestamp
 
     def add_neighbor_alive(self, id):
         return self.neighbor_alive.append(id)
-
-    def remove_neighbor(self, id):
-        if id in self.neighbor_info: del self.neighbor_info[id]
-        if id in self.neighbor_msg: del self.neighbor_msg[id]
 
     def get_neighbors(self):
         return sorted(self.neighbor_status.keys())
@@ -134,8 +216,9 @@ class Recv(THREAD.Thread):
             if msg_data['type'] == 0 and node_info[1] == self.controller_port:
                 self.switch.update_neighbor(msg_data['neighbor'])
 
-                print(get_timestamp())
-                print('Register Response Received')
+                output = '{0}\nRegister Response Received'.format(get_timestamp())
+                print(output)
+                log(LOG_FILE, output)
 
                 self.switch.bootstrap()
 
@@ -145,12 +228,17 @@ class Recv(THREAD.Thread):
             if msg_data['type'] == 1 and node_info[1] == self.controller_port:
                 route_path = msg_data['route_path']
 
-                print(get_timestamp())
-                print('Routing Update')
+                output = '{0}\nRouting Update'.format(get_timestamp())
+                print(output)
+                log(LOG_FILE, output)
                 for neighbor in route_path[self.id]:
-                    print('{0},{1}:{2}'.format(self.id, neighbor, 
-                                               route_path[self.id][neighbor][0]))
-                print('Routing Complete')
+                    output = '{0},{1}:{2}'.format(self.id, neighbor, 
+                                                  route_path[self.id][neighbor][0])
+                    print(output)
+                    log(LOG_FILE, output)
+                output = 'Routing Complete'
+                print(output)
+                log(LOG_FILE, output)
 
             # =======================================================
             #  'Keep Alive' Message (from Neighbors)                =
@@ -162,7 +250,7 @@ class Recv(THREAD.Thread):
 
                 if id != self.switch.fail_id:
                     # Switch Alive
-                    if not self.switch.check_switch(id): 
+                    if not self.switch.get_status(id): 
                         self.switch.add_neighbor_alive(id)
 
                     self.switch.update_neighbor_info(id, host, port)
@@ -194,8 +282,9 @@ class Send(THREAD.Thread):
         # =======================================================
         self.socket.sendto(JSON.dumps({'type': 0, 'id': self.id}).encode('utf-8'), 
                            (self.controller_host, self.controller_port))
-        print(get_timestamp())
-        print('Register Request Sent')
+        output = '{0}\nRegister Request Sent'.format(get_timestamp())
+        print(output)
+        log(LOG_FILE, output)
 
         # Wait for Bootstrap
         while not self.switch.ready: pass
@@ -209,8 +298,9 @@ class Send(THREAD.Thread):
             if self.switch.is_any_alive():
                 id = self.switch.get_neighbor_alive()
 
-                print(get_timestamp())
-                print('Neighbor Alive {0}'.format(id))
+                output = '{0}\nNeighbor Alive {1}'.format(get_timestamp(), id)
+                print(output)
+                log(LOG_FILE, output)
 
                 # 'Topology Update' Message (to Controller)
                 self.socket.sendto(JSON.dumps({'type': 1, 'id': self.id, 'neighbor': self.switch.get_neighbor_status()}).encode('utf-8'),
@@ -220,15 +310,16 @@ class Send(THREAD.Thread):
             #  Check TIMEOUT for Each Switch                        =
             # =======================================================
             for id in list(self.switch.get_neighbors()):
-                if not self.switch.check_switch(id): continue
+                if not self.switch.get_status(id): continue
 
                 # Switch is Offline
                 if DATETIME.datetime.now() - self.switch.get_neighbor_msg()[id] >= DATETIME.timedelta(seconds=6):
-                    # Remove Switch Info (Host / Port) & Msg (TimeStamp)
+                    # Modify Switch Status
                     self.switch.update_neighbor_status(id, False)
 
-                    print(get_timestamp())
-                    print('Neighbor Dead {0}'.format(id))
+                    output = '{0}\nNeighbor Dead {1}'.format(get_timestamp(), id)
+                    print(output)
+                    log(LOG_FILE, output)
 
                     # =======================================================
                     #  'Topology Update' Message (to Controller)            =
@@ -241,12 +332,15 @@ class Send(THREAD.Thread):
                 neighbor_info   = self.switch.get_neighbor_info()
                 neighbor_status = self.switch.get_neighbor_status()
 
+                # (debug)
                 # print('ID: {0}, Neighbor Info: {1}, Neighbot Msg: {2}'.format(self.id, self.switch.neighbor_info, self.switch.neighbor_msg))
 
                 # =======================================================
                 #  'Keep Alive' Message (to Neighbors)                  =
                 # =======================================================
                 for neighbor in neighbor_info:
+                    if not self.switch.get_status(neighbor): continue
+
                     if neighbor != self.switch.fail_id:
                         self.socket.sendto(JSON.dumps({'type': 2, 'id': self.id}).encode('utf-8'),
                                            neighbor_info[neighbor])
@@ -273,10 +367,14 @@ def main():
     offline_neighbor = ''
     if len(SYS.argv) == 6: offline_neighbor = SYS.argv[SYS.argv.index('-f') + 1]
 
-    sockfd = SOCKET.socket(SOCKET.AF_INET, SOCKET.SOCK_DGRAM, SOCKET.IPPROTO_UDP)
-    sockfd.setsockopt(SOCKET.SOL_SOCKET, SOCKET.SO_REUSEADDR, 1)
+    # Log Purpose
+    global LOG_FILE
+    LOG_FILE = open('switch{0}.log'.format(id), 'a', buffering=1)
 
     switch = Switch(offline_neighbor)
+
+    sockfd = SOCKET.socket(SOCKET.AF_INET, SOCKET.SOCK_DGRAM, SOCKET.IPPROTO_UDP)
+    sockfd.setsockopt(SOCKET.SOL_SOCKET, SOCKET.SO_REUSEADDR, 1)
 
     send_thread = Send(sockfd, id, host, port, switch)
     recv_thread = Recv(sockfd, id, host, port, switch)

@@ -1,7 +1,7 @@
 #
 #    Author : Yuan-Yao Lou (Mike) <yylou@purdue.edu>
 #    Title  : Ph.D. student in ECE at Purdue University
-#    Date   : 2021/09/18
+#    Date   : 2021/09/23
 #
 
 
@@ -15,6 +15,21 @@ import datetime as DATETIME
 
 def get_timestamp():
     return '\n\n{0:%H:%M:%S.%f}'.format(DATETIME.datetime.now())
+
+def log(FILE, content):
+    """
+    Function
+    ----------
+    
+    
+
+    Parameters
+    ----------
+    
+    
+    """
+
+    FILE.write('{0}\n'.format(content))
 
 class Network:
     """
@@ -46,6 +61,8 @@ class Network:
         for i in range(len(self.CFG)):
             line = self.CFG[i]
 
+            if len(line) <= 0: continue
+
             # Topology Initialization
             if i == 0: 
                 self.nodes = int(line)
@@ -63,11 +80,13 @@ class Network:
 
         CFG.close()
 
+        self.ori_topology = dict(self.topology)
+
     def _retrieve_path(self, parent, node, target, path):
         """
         Function
         ----------
-        Retrieve routing path
+        Retrieve routing path after computing the routing path
         
 
         Parameters
@@ -82,6 +101,7 @@ class Network:
             Routing path record
         """
 
+        # No result for offline node
         if node == -1: return 
 
         self._retrieve_path(parent, parent[node], target, path)
@@ -91,7 +111,7 @@ class Network:
         """
         Function
         ----------
-        Algorightm of widest path routing
+        Algorightm of Widest Path Routing
         
 
         Parameters
@@ -111,6 +131,8 @@ class Network:
         while queue:
             tmp = queue.pop()
             current_node = tmp[1]
+
+            if current_node not in self.topology: continue
 
             for neighbor in self.topology[current_node]:
                 bw = self.topology[current_node][neighbor]
@@ -132,12 +154,14 @@ class Network:
         """
         Function
         ----------
-        Compute each path by widest path routing
+        Compute each path by Widest Path Routing
         """
 
         self.route_path = {}
 
-        print('{0}\nRouting Update'.format(get_timestamp()))
+        output = '{0}\nRouting Update'.format(get_timestamp())
+        print(output)
+        log(LOG_FILE, output)
         for src in range(self.nodes):
             # Offline Source Node
             if not self.node[src]: continue
@@ -160,17 +184,22 @@ class Network:
                     # No Path to Reach Destination
                     else: self.route_path[src][dest] = (-1, 0) 
 
-                print('{0},{1}:{2},{3}'.format(src, dest, 
-                                               self.route_path[src][dest][0], 
-                                               self.route_path[src][dest][1]
-                                              ))
-        print('Routing Complete')
+                output = '{0},{1}:{2},{3}'.format(src, dest, 
+                                                  self.route_path[src][dest][0], 
+                                                  self.route_path[src][dest][1]
+                                                 )
+                print(output)
+                log(LOG_FILE, output)
+        
+        output = 'Routing Complete'
+        print(output)
+        log(LOG_FILE, output)
 
     def connect_node(self, id):
         """
         Function
         ----------
-        Node is alive again
+        Add node and links to the topology when node is alive again
         
 
         Parameters
@@ -189,17 +218,17 @@ class Network:
 
             if src == id: 
                 self.topology[id][dest] = bw
-                if self.node[dest]: self.topology[dest][id] = bw
+                # if self.node[dest]: self.topology[dest][id] = bw
             
             if dest == id: 
                 self.topology[id][src] = bw
-                if self.node[src]: self.topology[src][id] = bw
+                # if self.node[src]: self.topology[src][id] = bw
 
     def connect_link(self, node1, node2):
         """
         Function
         ----------
-        Link is alive again
+        Add links to the topology when link is alive again
         
 
         Parameters
@@ -221,7 +250,7 @@ class Network:
         """
         Function
         ----------
-        Node is offline
+        Remove node and links from the topology when node is offline
         
 
         Parameters
@@ -241,7 +270,7 @@ class Network:
         """
         Function
         ----------
-        Link is offline
+        Remove links from the topology when link is offline
         
 
         Parameters
@@ -255,12 +284,36 @@ class Network:
         if self.node[src] and self.node[dest]: del self.topology[src][dest]
 
     def get_node_status(self, id):
+        """
+        Function
+        ----------
+        Get node's status (alive or offline) for TIMEOUT check
+        
+
+        Parameters
+        ----------
+        id : int
+            Node ID
+        """
+
         return self.node[id]
 
     def get_route_path(self):
+        """
+        Function
+        ----------
+        Return routing path for 'Route Update' message
+        """
+
         return self.route_path
 
     def get_topology(self):
+        """
+        Function
+        ----------
+        Return topology for neighbor nodes information in 'Register Response' message
+        """
+
         return self.topology
 
     def get_nodes_number(self) -> int:
@@ -288,7 +341,7 @@ class System:
         """
         Function
         ----------
-        (1) Mark bootstrap @ len(switch_info) == Network.get_nodes_number()
+        (1) Mark bootstrap when len(switch_info) == Network.get_nodes_number()
         (2) Give each switch a initial timestamp for TIMEOUT checking
 
         Parameters
@@ -309,7 +362,7 @@ class System:
         """
         Function
         ----------
-        For 'Register Request' message
+        Add switch's (host / post) information from 'Register Request' message
 
         Parameters
         ----------
@@ -325,7 +378,7 @@ class System:
         """
         Function
         ----------
-        For 'Toplogy Update' message
+        Update switch's timestamp and neighbor information from 'Toplogy Update' message
 
         Parameters
         ----------
@@ -343,7 +396,7 @@ class System:
         """
         Function
         ----------
-        Mark switch is offline @ Switch TimeStamp Delta > 6 seconds
+        Mark switch is offline when switch is offline (timestamp delta > 6 seconds)
 
         Parameters
         ----------
@@ -358,7 +411,8 @@ class System:
         """
         Function
         ----------
-        For switch alive condition (Status is True but receive Register Request)
+        (1) Check whether system is in bootstrap status
+        (2) For switch alive condition, status is True but still receive 'Register Request' message
         """
 
         return self.status
@@ -437,10 +491,12 @@ class Recv(THREAD.Thread):
             if msg_data['type'] == 0:
                 self.system.add_switch_info(sender_id, node_info)
                 
-                print('\n\nRegister Request {0}'.format(msg_data['id']))
+                output = '{0}\nRegister Request {1}'.format(get_timestamp(), msg_data['id'])
+                print(output)
+                log(LOG_FILE, output)
 
                 # Switch Alive Condition
-                if self.system.get_status():
+                if not self.network.get_node_status(sender_id):
                     self.system.switch_msg[sender_id] = {}
                     self.system.switch_msg[sender_id]['timestamp'] = DATETIME.datetime.now()
 
@@ -495,7 +551,9 @@ class Send(THREAD.Thread):
                 self.system.bootstrap(self.network.get_nodes_number(), DATETIME.datetime.now())
 
                 # 'Register Response' Message (to All Switches)
-                print(get_timestamp())
+                output = get_timestamp()
+                print(output)
+                log(LOG_FILE, output)
                 for id in range(self.network.nodes):
                     self.reg_response(id)
 
@@ -513,20 +571,24 @@ class Send(THREAD.Thread):
                 node = self.system.get_node_alive().pop()
                 self.network.connect_node(node)
 
-                print('{0}\nSwitch Alive {1}'.format(get_timestamp(), node))
+                output = '{0}\nSwitch Alive {1}'.format(get_timestamp(), node)
+                print(output)
+                log(LOG_FILE, output)
 
                 # Update Routing Path
                 self.network.compute_path()
                 route_path = self.network.get_route_path()
 
+                # 'Register Response' Message (to Alive Switch and its neighbors)
+                for switch in range(self.network.nodes):
+                    if switch == node or (switch in route_path and node in route_path[switch]): 
+                        output = get_timestamp()
+                        print(output)
+                        log(LOG_FILE, output)
+                        self.reg_response(switch)
+
                 # 'Route Update' Message (to All Switches)
                 self.route_update(route_path)
-
-                # 'Register Response' Message (to Alive Switch and its neighbors)
-                for switch in route_path:
-                    if switch == node or node in route_path[switch]: 
-                        print(get_timestamp())
-                        self.reg_response(switch)
 
             # =======================================================
             #  Check for Offline Link                               =
@@ -535,7 +597,9 @@ class Send(THREAD.Thread):
                 src, dest = self.system.get_link_dead().pop()
                 self.network.remove_link(src, dest)
 
-                print('{0}\nLink Dead {1},{2}'.format(get_timestamp(), src, dest))
+                output = '{0}\nLink Dead {1},{2}'.format(get_timestamp(), src, dest)
+                print(output)
+                log(LOG_FILE, output)
 
                 # Update Routing Path
                 self.network.compute_path()
@@ -550,6 +614,8 @@ class Send(THREAD.Thread):
             if self.system.get_link_alive():
                 src, dest = self.system.get_link_alive().pop()
                 self.network.connect_link(src, dest)
+
+                print('{0}\nLink Alive {1},{2}'.format(get_timestamp(), src, dest))
 
                 # Update Routing Path
                 self.network.compute_path()
@@ -572,7 +638,9 @@ class Send(THREAD.Thread):
                     # Remove Node from Network Topology
                     self.network.remove_node(id)
 
-                    print('{0}\nSwitch Dead {1}'.format(get_timestamp(), id))
+                    output = '{0}\nSwitch Dead {1}'.format(get_timestamp(), id)
+                    print(output)
+                    log(LOG_FILE, output)
 
                     # Update Routing Path
                     self.network.compute_path()
@@ -591,12 +659,18 @@ class Send(THREAD.Thread):
         switch_system_info = self.system.get_switch_info()
         
         neighbor = {}
-        for element in self.network.get_topology()[id]: neighbor[element] = (switch_system_info[element])
+        for element in self.network.ori_topology[id]: 
+            if element in switch_system_info:
+                neighbor[element] = (True, switch_system_info[element])
+            else:
+                neighbor[element] = (False, ('', ''))
 
         self.socket.sendto(JSON.dumps({'type': 0, 'neighbor': neighbor}).encode('utf-8'), 
                            switch_system_info[id])
 
-        print('Register Response {0}'.format(id))
+        output = 'Register Response {0}'.format(id)
+        print(output)
+        log(LOG_FILE, output)
 
     def route_update(self, route_path):
         """
@@ -622,6 +696,13 @@ def main():
     # Read Config to Build Network Topology
     network = Network(SYS.argv[2])
     system = System()
+
+    # Log Purpose
+    global LOG_FILE
+    LOG_FILE = open('Controller.log', 'w', buffering=1)
+    for i in range(network.get_nodes_number()):
+        FILE = open('switch{0}.log'.format(i), 'w')
+        FILE.close()
     
     # Socket Initialization
     sockfd = SOCKET.socket(SOCKET.AF_INET, SOCKET.SOCK_DGRAM, SOCKET.IPPROTO_UDP)
