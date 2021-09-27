@@ -1,0 +1,1051 @@
+
+===================================================
+Starting network: graph_3.txt
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking for convergence of switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 20 out of 20
+
+===================================================
+Starting network: graph_3.txt
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking for convergence of switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+Killing switch1. Waiting 15 seconds for reconvergence and then check again
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:-1,0
+0,2:2,10
+2,0:0,10
+2,1:-1,0
+2,2:2,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:-1,0
+0,2:2,10
+2,0:0,10
+2,1:-1,0
+2,2:2,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:-1
+0,2:2
+
+Checking for convergence of switch 0
+0,0:0
+0,1:-1
+0,2:2
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:0
+2,1:-1
+2,2:2
+
+Checking for convergence of switch 2
+2,0:0
+2,1:-1
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 10 out of 10
+
+===================================================
+Starting network: graph_3.txt
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking for convergence of switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+Killing switch2. Waiting 15 seconds for reconvergence and then check again
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,20
+0,2:-1,0
+1,0:0,20
+1,1:1,9999
+1,2:-1,0
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,20
+0,2:-1,0
+1,0:0,20
+1,1:1,9999
+1,2:-1,0
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:-1
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:-1
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:-1
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:-1
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking for convergence of switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 10 out of 10
+
+===================================================
+Starting network: graph_3.txt with link failures 1-2 
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,20
+0,2:2,10
+1,0:0,20
+1,1:1,9999
+1,2:0,10
+2,0:0,10
+2,1:0,10
+2,2:2,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,20
+0,2:2,10
+1,0:0,20
+1,1:1,9999
+1,2:0,10
+2,0:0,10
+2,1:0,10
+2,2:2,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:2
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:2
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:0
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:0
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:0
+2,1:0
+2,2:2
+
+Checking for convergence of switch 2
+2,0:0
+2,1:0
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 10 out of 10
+
+===================================================
+Starting network: graph_3.txt with link failures 0-2 
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:1
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:2
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking for convergence of switch 2
+2,0:1
+2,1:1
+2,2:2
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 10 out of 10
+
+===================================================
+Starting network: graph_6.txt
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,100
+0,2:5,80
+0,3:3,200
+0,4:1,100
+0,5:5,80
+1,0:0,100
+1,1:1,9999
+1,2:0,80
+1,3:0,100
+1,4:4,180
+1,5:0,80
+2,0:5,80
+2,1:5,80
+2,2:2,9999
+2,3:5,80
+2,4:5,80
+2,5:5,150
+3,0:0,200
+3,1:0,100
+3,2:0,80
+3,3:3,9999
+3,4:0,100
+3,5:0,80
+4,0:1,100
+4,1:1,180
+4,2:1,80
+4,3:1,100
+4,4:4,9999
+4,5:1,80
+5,0:0,80
+5,1:0,80
+5,2:2,150
+5,3:0,80
+5,4:0,80
+5,5:5,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,100
+0,2:5,80
+0,3:3,200
+0,4:1,100
+0,5:5,80
+1,0:0,100
+1,1:1,9999
+1,2:0,80
+1,3:0,100
+1,4:4,180
+1,5:0,80
+2,0:5,80
+2,1:5,80
+2,2:2,9999
+2,3:5,80
+2,4:5,80
+2,5:5,150
+3,0:0,200
+3,1:0,100
+3,2:0,80
+3,3:3,9999
+3,4:0,100
+3,5:0,80
+4,0:1,100
+4,1:1,180
+4,2:1,80
+4,3:1,100
+4,4:4,9999
+4,5:1,80
+5,0:0,80
+5,1:0,80
+5,2:2,150
+5,3:0,80
+5,4:0,80
+5,5:5,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:5
+0,3:3
+0,4:1
+0,5:5
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:5
+0,3:3
+0,4:1
+0,5:5
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:0
+1,3:0
+1,4:4
+1,5:0
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:0
+1,3:0
+1,4:4
+1,5:0
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:5
+2,1:5
+2,2:2
+2,3:5
+2,4:5
+2,5:5
+
+Checking for convergence of switch 2
+2,0:5
+2,1:5
+2,2:2
+2,3:5
+2,4:5
+2,5:5
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+Checking for convergence of reference switch 3
+3,0:0
+3,1:0
+3,2:0
+3,3:3
+3,4:0
+3,5:0
+
+Checking for convergence of switch 3
+3,0:0
+3,1:0
+3,2:0
+3,3:3
+3,4:0
+3,5:0
+
+Checking whether the routing table above for switch3 is the same as the reference one.
+Switch3 routing table is correct
+
+Checking for convergence of reference switch 4
+4,0:1
+4,1:1
+4,2:1
+4,3:1
+4,4:4
+4,5:1
+
+Checking for convergence of switch 4
+4,0:1
+4,1:1
+4,2:1
+4,3:1
+4,4:4
+4,5:1
+
+Checking whether the routing table above for switch4 is the same as the reference one.
+Switch4 routing table is correct
+
+Checking for convergence of reference switch 5
+5,0:0
+5,1:0
+5,2:2
+5,3:0
+5,4:0
+5,5:5
+
+Checking for convergence of switch 5
+5,0:0
+5,1:0
+5,2:2
+5,3:0
+5,4:0
+5,5:5
+
+Checking whether the routing table above for switch5 is the same as the reference one.
+Switch5 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 20 out of 20
+
+===================================================
+Starting network: graph_6.txt
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:1,100
+0,2:5,80
+0,3:3,200
+0,4:1,100
+0,5:5,80
+1,0:0,100
+1,1:1,9999
+1,2:0,80
+1,3:0,100
+1,4:4,180
+1,5:0,80
+2,0:5,80
+2,1:5,80
+2,2:2,9999
+2,3:5,80
+2,4:5,80
+2,5:5,150
+3,0:0,200
+3,1:0,100
+3,2:0,80
+3,3:3,9999
+3,4:0,100
+3,5:0,80
+4,0:1,100
+4,1:1,180
+4,2:1,80
+4,3:1,100
+4,4:4,9999
+4,5:1,80
+5,0:0,80
+5,1:0,80
+5,2:2,150
+5,3:0,80
+5,4:0,80
+5,5:5,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:1,100
+0,2:5,80
+0,3:3,200
+0,4:1,100
+0,5:5,80
+1,0:0,100
+1,1:1,9999
+1,2:0,80
+1,3:0,100
+1,4:4,180
+1,5:0,80
+2,0:5,80
+2,1:5,80
+2,2:2,9999
+2,3:5,80
+2,4:5,80
+2,5:5,150
+3,0:0,200
+3,1:0,100
+3,2:0,80
+3,3:3,9999
+3,4:0,100
+3,5:0,80
+4,0:1,100
+4,1:1,180
+4,2:1,80
+4,3:1,100
+4,4:4,9999
+4,5:1,80
+5,0:0,80
+5,1:0,80
+5,2:2,150
+5,3:0,80
+5,4:0,80
+5,5:5,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:1
+0,2:5
+0,3:3
+0,4:1
+0,5:5
+
+Checking for convergence of switch 0
+0,0:0
+0,1:1
+0,2:5
+0,3:3
+0,4:1
+0,5:5
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:0
+1,3:0
+1,4:4
+1,5:0
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:0
+1,3:0
+1,4:4
+1,5:0
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:5
+2,1:5
+2,2:2
+2,3:5
+2,4:5
+2,5:5
+
+Checking for convergence of switch 2
+2,0:5
+2,1:5
+2,2:2
+2,3:5
+2,4:5
+2,5:5
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+Checking for convergence of reference switch 3
+3,0:0
+3,1:0
+3,2:0
+3,3:3
+3,4:0
+3,5:0
+
+Checking for convergence of switch 3
+3,0:0
+3,1:0
+3,2:0
+3,3:3
+3,4:0
+3,5:0
+
+Checking whether the routing table above for switch3 is the same as the reference one.
+Switch3 routing table is correct
+
+Checking for convergence of reference switch 4
+4,0:1
+4,1:1
+4,2:1
+4,3:1
+4,4:4
+4,5:1
+
+Checking for convergence of switch 4
+4,0:1
+4,1:1
+4,2:1
+4,3:1
+4,4:4
+4,5:1
+
+Checking whether the routing table above for switch4 is the same as the reference one.
+Switch4 routing table is correct
+
+Checking for convergence of reference switch 5
+5,0:0
+5,1:0
+5,2:2
+5,3:0
+5,4:0
+5,5:5
+
+Checking for convergence of switch 5
+5,0:0
+5,1:0
+5,2:2
+5,3:0
+5,4:0
+5,5:5
+
+Checking whether the routing table above for switch5 is the same as the reference one.
+Switch5 routing table is correct
+
+Killing switch1. Waiting 15 seconds for reconvergence and then check again
+Checking for convergence of reference Controller
+0,0:0,9999
+0,1:-1,0
+0,2:5,80
+0,3:3,200
+0,4:3,90
+0,5:5,80
+2,0:5,80
+2,1:-1,0
+2,2:2,9999
+2,3:5,80
+2,4:5,80
+2,5:5,150
+3,0:0,200
+3,1:-1,0
+3,2:0,80
+3,3:3,9999
+3,4:4,90
+3,5:0,80
+4,0:3,90
+4,1:-1,0
+4,2:3,80
+4,3:3,90
+4,4:4,9999
+4,5:3,80
+5,0:0,80
+5,1:-1,0
+5,2:2,150
+5,3:0,80
+5,4:0,80
+5,5:5,9999
+
+Checking for convergence of student Controller
+0,0:0,9999
+0,1:-1,0
+0,2:5,80
+0,3:3,200
+0,4:3,90
+0,5:5,80
+2,0:5,80
+2,1:-1,0
+2,2:2,9999
+2,3:5,80
+2,4:5,80
+2,5:5,150
+3,0:0,200
+3,1:-1,0
+3,2:0,80
+3,3:3,9999
+3,4:4,90
+3,5:0,80
+4,0:3,90
+4,1:-1,0
+4,2:3,80
+4,3:3,90
+4,4:4,9999
+4,5:3,80
+5,0:0,80
+5,1:-1,0
+5,2:2,150
+5,3:0,80
+5,4:0,80
+5,5:5,9999
+
+Checking whether the routing table above for controller is the same as the reference one.
+Controller routing table is correct
+
+Checking for convergence of reference switch 0
+0,0:0
+0,1:-1
+0,2:5
+0,3:3
+0,4:3
+0,5:5
+
+Checking for convergence of switch 0
+0,0:0
+0,1:-1
+0,2:5
+0,3:3
+0,4:3
+0,5:5
+
+Checking whether the routing table above for switch0 is the same as the reference one.
+Switch0 routing table is correct
+
+Checking for convergence of reference switch 1
+1,0:0
+1,1:1
+1,2:0
+1,3:0
+1,4:4
+1,5:0
+
+Checking for convergence of switch 1
+1,0:0
+1,1:1
+1,2:0
+1,3:0
+1,4:4
+1,5:0
+
+Checking whether the routing table above for switch1 is the same as the reference one.
+Switch1 routing table is correct
+
+Checking for convergence of reference switch 2
+2,0:5
+2,1:-1
+2,2:2
+2,3:5
+2,4:5
+2,5:5
+
+Checking for convergence of switch 2
+2,0:5
+2,1:-1
+2,2:2
+2,3:5
+2,4:5
+2,5:5
+
+Checking whether the routing table above for switch2 is the same as the reference one.
+Switch2 routing table is correct
+
+Checking for convergence of reference switch 3
+3,0:0
+3,1:-1
+3,2:0
+3,3:3
+3,4:4
+3,5:0
+
+Checking for convergence of switch 3
+3,0:0
+3,1:-1
+3,2:0
+3,3:3
+3,4:4
+3,5:0
+
+Checking whether the routing table above for switch3 is the same as the reference one.
+Switch3 routing table is correct
+
+Checking for convergence of reference switch 4
+4,0:3
+4,1:-1
+4,2:3
+4,3:3
+4,4:4
+4,5:3
+
+Checking for convergence of switch 4
+4,0:3
+4,1:-1
+4,2:3
+4,3:3
+4,4:4
+4,5:3
+
+Checking whether the routing table above for switch4 is the same as the reference one.
+Switch4 routing table is correct
+
+Checking for convergence of reference switch 5
+5,0:0
+5,1:-1
+5,2:2
+5,3:0
+5,4:0
+5,5:5
+
+Checking for convergence of switch 5
+5,0:0
+5,1:-1
+5,2:2
+5,3:0
+5,4:0
+5,5:5
+
+Checking whether the routing table above for switch5 is the same as the reference one.
+Switch5 routing table is correct
+
+End Test
+SUCCEEDED
+Your grade for this part is 20 out of 20
+
+Total grade is 100 out of 100
+Done!
