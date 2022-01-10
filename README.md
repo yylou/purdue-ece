@@ -1,6 +1,6 @@
 # Purdue ECE Course Study
-### [Fall 2021](#Fall-2021)
-### [Spring 2022](#Spring-2022)
+* [Fall 2021](#Fall-2021)
+* [Spring 2022](#Spring-2022)
 
 <br />
 
