@@ -1,6 +1,6 @@
 # Python Programming
 
-### <u>Math Operators</u>
+## Math Operators
 ```Python
   " +  "    Addition
   " -  "    Subtraction
@@ -11,7 +11,7 @@
   " %  "    Modulus (Remainder)
 ```
 
-### <u>Operator Precedence</u>
+## Operator Precedence
 ```Python
   (1)  Parentheses      " () "
   (2)  Exponentiation   " ** "
@@ -19,7 +19,7 @@
   (4)  Add / Sub        " +, - "
 ```
 
-### <u>Exponential Notation Format</u>
+## Exponential Notation Format
 ```Python
 >>> format(123456.789, 'e')         # '1.234568e+05'
 >>> format(123456.789, '.2e')       # '1.23e+05'
@@ -27,15 +27,15 @@
 >>> format(0.00000123456, '.4E')    # '1.2346E-06'
 ```
 
-### <u>Complex Numbers</u>
+## Complex Numbers
 ```Python
 >>> complex(10,   20)       # (10  + 20j)
 >>> complex(2.5, -18.2)     # (2.5 - 18.2j)
 ```
 
-### <u>Classes, Instances, and Attributes</u>
-* For the purpose of writing code, a class is a data structure with attributes.
-* To endow instances with behaviors, a class can be provided with methods.
+## Classes, Instances, and Attributes
+* For the purpose of writing code, **a class is a data structure with attributes.**
+* To endow instances with behaviors, **a class can be provided with methods.**
 
 <br />
 
@@ -44,8 +44,31 @@
 * Attributes that take data values on a **per-instance** basis are frequently referred to as **instance variables**.
 * Attributes that take on values on a **per-class** basis are called **class attributes or static attributes or class variables**.
 
-### <u>Encapsulation, Inheritance, and Polymorphism</u>
+## Encapsulation, Inheritance, and Polymorphism
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
 * **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time
 * **Polymorphism** in a nutshell allows us to manipulate instances belonging to the different classes of a hierarchy through a common interface defined for the root class.
+
+## Function Objects vs. Callables
+* Function object can only be created with a def statement.
+* Callable is any object that can be called like a function.
+* An instance object can also be called directly; what that yields depends on whether or not the underlying class provides a definition for the **system-supplied call () method.**
+```Python
+import random
+random.seed(0)
+
+class X:
+    def __init__(self, arr) : self.arr = arr
+    def get_num(self, i): return self.arr[i]
+    def __call__(self): return self.arr
+
+xobj = X(random.sample(range(1,10), 5))
+print(xobj.get_num(2))  # 1
+print(xobj())           # [7, 9, 1, 3, 5]
+```
+
+## Pre-Defined Attributes for a Class
+```Python
+
+```
