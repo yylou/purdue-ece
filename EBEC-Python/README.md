@@ -44,6 +44,25 @@
 * Attributes that take data values on a **per-instance** basis are frequently referred to as **instance variables**.
 * Attributes that take on values on a **per-class** basis are called **class attributes or static attributes or class variables**.
 
+## Pre-Defined Attributes for a Class
+* \_\_name__    : string name of the class
+* \_\_doc__     : documentation string for the class
+* \_\_bases__   : tuple of parent classes of the class
+* \_\_dict__    : dictionary whose keys are the names of the class variables and the methods of the class and whose values are the corresponding bindings
+* \_\_module__  : module in which the class is defined
+
+## Pre-Defined Attributes for an Instance
+* \_\_class__   : string name of the class from which the instance was constructed
+* \_\_dict__    : dictionary whose keys are the names of the instance variables
+```Python
+# As an alternative to invoking dict on a class name
+"""
+Returns a list of all the attribute names, for variables and for methods, for the class
+(both directly defined for the class and inherited from a class’s superclasses).
+"""
+dir(MyClass)
+```
+
 ## Encapsulation, Inheritance, and Polymorphism
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
@@ -66,9 +85,4 @@ class X:
 xobj = X(random.sample(range(1,10), 5))
 print(xobj.get_num(2))  # 1
 print(xobj())           # [7, 9, 1, 3, 5]
-```
-
-## Pre-Defined Attributes for a Class
-```Python
-
 ```
