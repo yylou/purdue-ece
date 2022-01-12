@@ -1,6 +1,6 @@
 # Python Programming
 
-### Math Operators:
+### <u>Math Operators</u>
 ```Python
   " +  "    Addition
   " -  "    Subtraction
@@ -11,7 +11,7 @@
   " %  "    Modulus (Remainder)
 ```
 
-### Operator Precedence
+### <u>Operator Precedence</u>
 ```Python
   (1)  Parentheses      " () "
   (2)  Exponentiation   " ** "
@@ -19,7 +19,7 @@
   (4)  Add / Sub        " +, - "
 ```
 
-### Exponential Notation Format
+### <u>Exponential Notation Format</u>
 ```Python
 >>> format(123456.789, 'e')         # '1.234568e+05'
 >>> format(123456.789, '.2e')       # '1.23e+05'
@@ -27,13 +27,13 @@
 >>> format(0.00000123456, '.4E')    # '1.2346E-06'
 ```
 
-### Complex Numbers
+### <u>Complex Numbers</u>
 ```Python
 >>> complex(10,   20)       # (10  + 20j)
 >>> complex(2.5, -18.2)     # (2.5 - 18.2j)
 ```
 
-### Classes, Instances, and Attributes
+### <u>Classes, Instances, and Attributes</u>
 * For the purpose of writing code, a class is a data structure with attributes.
 * To endow instances with behaviors, a class can be provided with methods.
 
@@ -44,7 +44,7 @@
 * Attributes that take data values on a **per-instance** basis are frequently referred to as **instance variables**.
 * Attributes that take on values on a **per-class** basis are called **class attributes or static attributes or class variables**.
 
-### Encapsulation, Inheritance, and Polymorphism
+### <u>Encapsulation, Inheritance, and Polymorphism</u>
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
 * **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time
