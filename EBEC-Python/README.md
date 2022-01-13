@@ -1,5 +1,7 @@
 # Python Programming
 
+<br />
+
 ## Math Operators
 ```Python
   " +  "    Addition
@@ -53,6 +55,7 @@ To endow instances with behaviors, **a class can be provided with methods.**
 ## Pre-Defined Attributes for an Instance
 * \_\_class__   : string name of the class from which the instance was constructed
 * \_\_dict__    : dictionary whose keys are the names of the instance variables
+
 ```Python
 # As an alternative to invoking dict on a class name
 """
@@ -62,6 +65,17 @@ Returns a list of all the attribute names, for variables and for methods, for th
 dir(MyClass)        # type: list
 MyClass.__dict__    # type: mappingproxy
 ```
+
+## How Python Creates an Instance from a Class
+Step 1.  
+* The call to the constructor creates what may be referred to as a generic instance from the class definition.  
+* **The generic instance’s memory allocation is customized with the code in the method \_\_new__() of the class.**  
+  (This method may either be defined directly for the class or the class may inherit it from one of its parent classes)
+* The method \_\_new__() is implicitly considered by Python to be a static method.
+* If a class does not provide its own definition for new (), a search is conducted for this method in the parent classes of the class.
+
+Step 2.  
+* Then the instance method \_\_init__() of the class is invoked to initialize the instance returned by \_\_new__().
 
 ```Python
 class Person:
@@ -98,6 +112,8 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 
 ```
 
+<br />
+
 ## Encapsulation, Inheritance, and Polymorphism
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
@@ -108,6 +124,7 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 * Function object can only be created with a def statement.
 * Callable is any object that can be called like a function.
 * An instance object can also be called directly; what that yields depends on whether or not the underlying class provides a definition for the **system-supplied call () method.**
+
 ```Python
 import random
 random.seed(0)
