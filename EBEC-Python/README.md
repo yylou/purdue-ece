@@ -241,7 +241,7 @@ print(D.__mro__)    # (<class '__main__.D'>,
 ## Encapsulation, Inheritance, and Polymorphism
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).  
-  (The use of ```super()``` comes into play when we implement inheritance. It's used in a child class to refer to the parent class.)
+  **(The use of ```super()``` comes into play when we implement inheritance. It's used in a child class to refer to the parent class.)**
 * **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time
 * **Polymorphism** in a nutshell allows us to manipulate instances belonging to the different classes of a hierarchy through a common interface defined for the root class.
 
