@@ -133,13 +133,27 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 ```Python
 class X:
     def __new__(cls):
-        print("__new__  invoked")
+        print("__new__  invoked @ X")
         return object.__new__(cls)
     def __init__(self):
-        print("__init__ invoked")
+        print("__init__ invoked @ X")
 
-xobj = X()      # __new__  invoked
-                # __init__ invoked
+class Y(X):
+    def __new__(cls):
+        print("__new__  invoked @ Y")
+        return object.__new__(cls)
+    def __init__(self):
+        print("__init__ invoked @ Y")
+        super().__init__()
+
+xobj = X()      # __new__  invoked @ X
+                # __init__ invoked @ X
+
+yobj = Y()      # __new__  invoked @ Y
+                # __init__ invoked @ Y
+                # __init__ invoked @ X
+
+print(Y.__bases__)  # (<class '__main__.X'>,)
 
 print(X.__dict__)   # {'__module__': '__main__',
                     #  '__new__': <staticmethod object at 0x1006a7be0>,
@@ -147,6 +161,43 @@ print(X.__dict__)   # {'__module__': '__main__',
                     #  '__dict__': <attribute '__dict__' of 'X' objects>,
                     #  '__weakref__': <attribute '__weakref__' of 'X' objects>,
                     #  '__doc__': None}
+```
+
+```Python
+"""
+The order in which the class and its bases are searched for the implementation code is
+commonly referred to as the Method Resolution Order (MRO)
+"""
+
+class A(object):
+    def __init__(self):
+        print("__init__ invoked @ A")
+
+class B(A):
+    def __init__(self):
+        print("__init__ invoked @ B")
+        super().__init__()
+
+class C(A):
+    def __init__(self):
+        print("__init__ invoked @ C")
+        super().__init__()
+
+class D(B, C):
+    def __init__(self):
+        print("__init__ invoked @ D")
+        super().__init__()
+
+d = D()     # __init__ invoked @ D
+            # __init__ invoked @ B
+            # __init__ invoked @ C
+            # __init__ invoked @ A
+
+print(D.__mro__)    # (<class '__main__.D'>,
+                    #  <class '__main__.B'>,
+                    #  <class '__main__.C'>,
+                    #  <class '__main__.A'>,
+                    #  <class 'object'>)
 ```
 
 <br />
