@@ -114,6 +114,14 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 
 <br />
 
+## Destruction of Instance Objects
+* **Python comes with an automatic garbage collector.**
+* Each object created is kept track of through reference counting.
+* Each time an object is assigned to a variable, its reference count goes up by one, signifying the fact that there is one more variable holding a reference to the object.
+* Each time a variable whose referent object either goes out of scope or is changed, the reference count associated with the object is decreased by one.
+* **When the reference count associated with an object goes to zero, it becomes a candidate for garbage collection.**
+* Python provides us with **\_\_del__()** for cleaning up beyond what is done by automatic garbage collection.
+
 ## Encapsulation, Inheritance, and Polymorphism
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
