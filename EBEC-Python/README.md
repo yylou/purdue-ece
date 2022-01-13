@@ -33,12 +33,11 @@
 >>> complex(2.5, -18.2)     # (2.5 - 18.2j)
 ```
 
-## Classes, Instances, and Attributes
-* For the purpose of writing code, **a class is a data structure with attributes.**
-* To endow instances with behaviors, **a class can be provided with methods.**
-
 <br />
 
+## Classes, Instances, and Attributes
+* <u>For the purpose of writing code, **a class is a data structure with attributes.**</u>
+* To endow instances with behaviors, **a class can be provided with methods.**
 * A method that is invoked on an instance is sometimes called an **instance method**.
 * You can also invoke a method directly on a class, in which case it is called a **class method or a static method**.
 * Attributes that take data values on a **per-instance** basis are frequently referred to as **instance variables**.
@@ -60,7 +59,43 @@
 Returns a list of all the attribute names, for variables and for methods, for the class
 (both directly defined for the class and inherited from a class’s superclasses).
 """
-dir(MyClass)
+dir(MyClass)        # type: list
+MyClass.__dict__    # type: mappingproxy
+```
+
+```Python
+class Person:
+    "A very simple class"
+    def __init__(self, name, yy):
+        self.name = name
+        self.age = yy
+
+# Test code
+a_person = Person("Zaphod", 114)
+print(a_person.name)        # Zaphod
+print(a_person.age)         # 114
+
+# Class Attributes
+print(Person.__name__)      # Person
+print(Person.__doc__)       # A very simple class
+print(Person.__module__)    # main
+print(Person.__bases__)     # ()
+print(Person.__dict__)      # {'__module__':    '__main__',
+                            #  '__doc__':       'A very simple class', 
+                            #  '__init__':      <function Person.__init__ at 0x107efd940>,
+                            #  '__dict__':      <attribute '__dict__' of 'Person' objects>,
+                            #  '__weakref__':   <attribute '__weakref__' of 'Person' objects>}
+
+print(dir(Person))          # ['__class__', '__init__', '__dict__', '__dir__', '__doc__',
+                            #  '__eq__', '__ge__', '__gt__', '__le__', '__lt__', '__ne__', 
+                            #  '__format__', '__sizeof__', '__str__', '__module__', '__getattribute__', '__new__', 
+                            #  '__reduce__', '__reduce_ex__', '__repr__', '__delattr__', '__setattr__',
+                            #  '__hash__', '__init_subclass__', '__subclasshook__', '__weakref__']
+
+# Instance Attributes
+print(a_person.__class__)   # __main__.Person
+print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
+
 ```
 
 ## Encapsulation, Inheritance, and Polymorphism
