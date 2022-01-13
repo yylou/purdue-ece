@@ -45,9 +45,9 @@ import random
 random.seed(0)
 
 class X:
-    def __init__(self, arr) : self.arr = arr
-    def get_num(self, i): return self.arr[i]
+    def __init__(self, arr): self.arr = arr
     def __call__(self): return self.arr
+    def get_num(self, i): return self.arr[i]
 
 xobj = X(random.sample(range(1,10), 5))
 print(xobj.get_num(2))  # 1
@@ -135,6 +135,7 @@ class X:
     def __new__(cls):
         print("__new__  invoked @ X")
         return object.__new__(cls)
+    
     def __init__(self):
         print("__init__ invoked @ X")
 
@@ -142,6 +143,7 @@ class Y(X):
     def __new__(cls):
         print("__new__  invoked @ Y")
         return object.__new__(cls)
+    
     def __init__(self):
         print("__init__ invoked @ Y")
         super().__init__()
@@ -215,3 +217,38 @@ print(D.__mro__)    # (<class '__main__.D'>,
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
 * **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time
 * **Polymorphism** in a nutshell allows us to manipulate instances belonging to the different classes of a hierarchy through a common interface defined for the root class.
+
+## Iterable vs. Iterator
+```Python
+import random
+random.seed(0)
+
+class X:
+    def __init__(self, arr): self.arr = arr
+    def __call__(self): return self.arr
+    def __iter__(self): return Xiterator(self)
+    def get_num(self, i): return self.arr[i]
+
+class Xiterator:
+    def __init__(self, xobj):
+        self.items = xobj.arr
+        self.index = -1
+
+    def __iter__(self): return self
+    def __next__(self):
+        self.index += 1
+        if self.index < len(self.items): return self.items[self.index]
+        else: raise StopIteration
+    
+    next = __next__
+
+xobj = X(random.sample(range(1,10), 5))
+print(xobj.get_num(2))      # 1
+print(xobj())               # [7, 9, 1, 3, 5]
+
+for item in xobj: print(item, end=', ')  # 7, 9, 1, 3, 5,
+
+iterator = iter(xobj)
+print(iterator.next())  # 7
+print(iterator.next())  # 9
+```
