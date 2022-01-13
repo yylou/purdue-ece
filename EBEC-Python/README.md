@@ -35,6 +35,25 @@
 >>> complex(2.5, -18.2)     # (2.5 - 18.2j)
 ```
 
+## Function Objects vs. Callables
+* Function object can only be created with a def statement.
+* Callable is any object that can be called like a function.
+* An instance object can also be called directly; what that yields depends on whether or not the underlying class provides a definition for the **system-supplied call () method.**
+
+```Python
+import random
+random.seed(0)
+
+class X:
+    def __init__(self, arr) : self.arr = arr
+    def get_num(self, i): return self.arr[i]
+    def __call__(self): return self.arr
+
+xobj = X(random.sample(range(1,10), 5))
+print(xobj.get_num(2))  # 1
+print(xobj())           # [7, 9, 1, 3, 5]
+```
+
 <br />
 
 ## Classes, Instances, and Attributes
@@ -109,7 +128,25 @@ print(dir(Person))          # ['__class__', '__init__', '__dict__', '__dir__', '
 # Instance Attributes
 print(a_person.__class__)   # __main__.Person
 print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
+```
 
+```Python
+class X:
+    def __new__(cls):
+        print("__new__  invoked")
+        return object.__new__(cls)
+    def __init__(self):
+        print("__init__ invoked")
+
+xobj = X()      # __new__  invoked
+                # __init__ invoked
+
+print(X.__dict__)   # {'__module__': '__main__',
+                    #  '__new__': <staticmethod object at 0x1006a7be0>,
+                    #  '__init__': <function X.__init__ at 0x1007899d0>,
+                    #  '__dict__': <attribute '__dict__' of 'X' objects>,
+                    #  '__weakref__': <attribute '__weakref__' of 'X' objects>,
+                    #  '__doc__': None}
 ```
 
 <br />
@@ -127,22 +164,3 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).
 * **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time
 * **Polymorphism** in a nutshell allows us to manipulate instances belonging to the different classes of a hierarchy through a common interface defined for the root class.
-
-## Function Objects vs. Callables
-* Function object can only be created with a def statement.
-* Callable is any object that can be called like a function.
-* An instance object can also be called directly; what that yields depends on whether or not the underlying class provides a definition for the **system-supplied call () method.**
-
-```Python
-import random
-random.seed(0)
-
-class X:
-    def __init__(self, arr) : self.arr = arr
-    def get_num(self, i): return self.arr[i]
-    def __call__(self): return self.arr
-
-xobj = X(random.sample(range(1,10), 5))
-print(xobj.get_num(2))  # 1
-print(xobj())           # [7, 9, 1, 3, 5]
-```
