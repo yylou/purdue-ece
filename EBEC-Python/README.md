@@ -36,8 +36,8 @@
 <br />
 
 ## Classes, Instances, and Attributes
-* <u>For the purpose of writing code, **a class is a data structure with attributes.**</u>
-* To endow instances with behaviors, **a class can be provided with methods.**
+For the purpose of writing code, **a class is a data structure with attributes.**  
+To endow instances with behaviors, **a class can be provided with methods.**
 * A method that is invoked on an instance is sometimes called an **instance method**.
 * You can also invoke a method directly on a class, in which case it is called a **class method or a static method**.
 * Attributes that take data values on a **per-instance** basis are frequently referred to as **instance variables**.
