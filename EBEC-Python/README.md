@@ -68,15 +68,15 @@ To endow instances with behaviors, **a class can be provided with methods.**
   (The class variables are shared by all instances or objects of the class.)
 
 ## Pre-Defined Attributes for a Class
-* \_\_name__    : string name of the class
-* \_\_doc__     : documentation string for the class
-* \_\_bases__   : tuple of parent classes of the class
-* \_\_dict__    : dictionary whose keys are the names of the class variables and the methods of the class and whose values are the corresponding bindings
-* \_\_module__  : module in which the class is defined
+* ```__name__```    : string name of the class
+* ```__doc__```     : documentation string for the class
+* ```__bases__```   : tuple of parent classes of the class
+* ```__dict__```    : dictionary whose keys are the names of the class variables and the methods of the class and whose values are the corresponding bindings
+* ```__module__```  : module in which the class is defined
 
 ## Pre-Defined Attributes for an Instance
-* \_\_class__   : string name of the class from which the instance was constructed
-* \_\_dict__    : dictionary whose keys are the names of the instance variables
+* ```__class__```   : string name of the class from which the instance was constructed
+* ```__dict__```    : dictionary whose keys are the names of the instance variables
 
 ```Python
 # As an alternative to invoking dict on a class name
@@ -147,13 +147,13 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 ## How Python Creates an Instance from a Class
 Step 1.  
 * The call to the constructor creates what may be referred to as a generic instance from the class definition.  
-* **The generic instance’s memory allocation is customized with the code in the method \_\_new__() of the class.**  
+* **The generic instance’s memory allocation is customized with the code in the method ```__new__()``` of the class.**  
   (This method may either be defined directly for the class or the class may inherit it from one of its parent classes)
-* The method \_\_new__() is implicitly considered by Python to be a static method.
-* If a class does not provide its own definition for new (), a search is conducted for this method in the parent classes of the class.
+* The method ```__new__()``` is implicitly considered by Python to be a static method.
+* If a class does not provide its own definition for ```__new__()```, a search is conducted for this method in the parent classes of the class.
 
 Step 2.  
-* Then the instance method \_\_init__() of the class is invoked to initialize the instance returned by \_\_new__().  
+* Then the instance method ```__init__()``` of the class is invoked to initialize the instance returned by ```__new__()```.  
   **(The initializer is used to initialize an object of a class. It's used to define and assign values to instance variables.)**
 
 ```Python
@@ -236,14 +236,109 @@ print(D.__mro__)    # (<class '__main__.D'>,
 * Each time an object is assigned to a variable, its reference count goes up by one, signifying the fact that there is one more variable holding a reference to the object.
 * Each time a variable whose referent object either goes out of scope or is changed, the reference count associated with the object is decreased by one.
 * **When the reference count associated with an object goes to zero, it becomes a candidate for garbage collection.**
-* Python provides us with **\_\_del__()** for cleaning up beyond what is done by automatic garbage collection.
+* Python provides us with ```__del__()``` for cleaning up beyond what is done by automatic garbage collection.
 
 ## Encapsulation, Inheritance, and Polymorphism
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).  
   **(The use of ```super()``` comes into play when we implement inheritance. It's used in a child class to refer to the parent class.)**
-* **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time
+* **Polymorphism** basically means that a given category of objects can exhibit multiple identities at the same time.  
+  (In programming, polymorphism refers to the same object exhibiting different forms and behaviors.)
 * **Polymorphism** in a nutshell allows us to manipulate instances belonging to the different classes of a hierarchy through a common interface defined for the root class.
+
+## Advantages of Inheritance
+* **Reusability:** Inheritance makes the code reusable.
+* **Code Modification:** Inheritance ensures that all changes are localized and inconsistencies are avioded.
+* **Extensibility:** Using inheritance, one can extend the base class as per the requirements of the derived class.  
+  (Inheritance provides an easy way to upgrade or enhance specific parts of a product without changing the core attributes.)
+* **Data Hiding**: The base class can keep some data private so that the derived class cannot alter it.  
+  (**This concept is called encapsulation.**)
+
+## Method Overriding, Operator Overloading
+* **Method overriding** is the process of redefining a parent class's method in a subclass.  
+  (In other words, if a subclass provides a specific implementation of a method that had already been defined in one of its parent classes, it is known as method overriding.)
+* When a class is defined, its objects can interact with each other through the operators, but it is **necessary to define the behavior of these operators through operator overloading.**
+
+```Python
+"""
+" + "   __add__(self, other)
+" - "   __sub__(self, other)
+" / "   __truediv__(self, other)
+" * "   __mul__(self, other)
+" < "   __lt__(self, other)
+" > "   __gt__(self, other)
+" == "  __eq__(self, other)
+"""
+
+class Compute:
+    def __init__(self, real=0, imag=0):
+        self.real = real
+        self.imag = imag
+
+    def __add__(self, other):  # overloading the `+` operator
+        temp = Compute(self.real + other.real, self.imag + other.imag)
+        return temp
+
+    def __sub__(self, other):  # overloading the `-` operator
+        temp = Compute(self.real - other.real, self.imag - other.imag)
+        return temp
+
+obj1 = Compute(3, 7)    # obj1.real = 3, obj2.imag = 7
+obj2 = Compute(2, 5)    # obj1.real = 2, obj2.imag = 5
+obj3 = obj1 + obj2      # obj1.real = 5, obj2.imag = 12
+obj4 = obj1 - obj2      # obj1.real = 1, obj2.imag = 2
+```
+
+<br />
+
+## Implementing duck typing
+```Python
+class Dog:
+    def Speak(self): print("Woof woof")
+
+class Cat:
+    def Speak(self): print("Meow meow")
+
+class AnimalSound:
+    def Sound(self, animal): animal.Speak()
+
+sound = AnimalSound()
+dog = Dog()
+cat = Cat()
+
+sound.Sound(dog)    # "Woof woof"
+sound.Sound(cat)    # "Meow meow"
+```
+
+## Abstract Base Classes (ABC)
+Abstract base classes define a set of methods and properties that **a class must implement in order to be considered a duck-type instance of that class.**
+
+```Python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):  # Shape is a child class of ABC
+    @abstractmethod
+    def area(self): pass
+
+    @abstractmethod
+    def perimeter(self): pass
+
+class Square(Shape):
+    def __init__(self, length): self.length = length
+
+
+shape = Shape()
+# This code will not compile since Shape has abstract methods without method definitions in it
+# We haven't defined the abstract methods, area and perimeter, inside the parent class Shape or the child class Square
+"""
+Traceback (most recent call last):
+  File "main.py", line 19, in <module>
+    shape = Shape()
+TypeError: Can't instantiate abstract class Shape with abstract methods area, perimeter
+"""
+```
+
+<br />
 
 ## Iterable vs. Iterator
 ```Python
