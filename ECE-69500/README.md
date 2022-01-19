@@ -11,3 +11,8 @@
 * Tensor of shape ```(C, H, W)```
 * Numpy ```(H, W, C)```
 * Feed into the neural network ```(B, C, H, W)```
+* PIL object
+
+### Scaling and Normalization
+* Scale [0, 255] to [0, +1.0] ```torchvision.transforms.ToTensor```
+* Transform [0, +1.0] to [-1.0, +1.0] ```torchvision.transforms.Normalize```
