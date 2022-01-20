@@ -19,11 +19,11 @@ print(img.format, img.size, img.mode)   # JPEG (3024, 4032) RGB
 W, H = img.size
 print(img.getpixel((100, 150)), '\n')   # (162, 163, 149)
 
-'''
+"""
 np.array[150, 100, :]       = (H, W, C)
 img.getpixel((100, 150))    = (W, H)
 torch.array[:, 150, 100]    = (C, H, W)
-'''
+"""
 array = np.zeros((H, W, 3), dtype=np.uint8)
 print(array[150, 100, :])               # [0 0 0]
 array[150, 100, :] = img.getpixel((100, 150))
