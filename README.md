@@ -12,5 +12,5 @@
 <br />
 
 ## Spring 2022
-* [ECE 69500](https://github.com/yylou/purdue-ece/tree/main/ECE-69500-DL) - Deep Learning
+* [ECE 69500](https://github.com/yylou/purdue-ece/tree/main/ECE-69500) - Deep Learning
 * [STAT 55300](https://github.com/yylou/purdue-ece/tree/main/STAT-55300) - Theory of Linear Model and Analysis of Experimental Designs
