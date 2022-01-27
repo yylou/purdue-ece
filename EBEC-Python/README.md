@@ -6,7 +6,7 @@
 
 <br />
 
-## Math Operators <a name="p1"></a>
+## Math Operators           <a name="p1"></a>
 ```Python
   " +  "    Addition
   " -  "    Subtraction
@@ -17,7 +17,7 @@
   " %  "    Modulus (Remainder)
 ```
 
-## Operator Precedence
+## Operator Precedence           <a name="p2"></a>
 ```Python
   (1)  Parentheses      " () "
   (2)  Exponentiation   " ** "
@@ -25,7 +25,7 @@
   (4)  Add / Sub        " +, - "
 ```
 
-## Exponential Notation Format
+## Exponential Notation Format          <a name="p3"></a>
 ```Python
 >>> format(123456.789,    'e')      # '1.234568e+05'
 >>> format(123456.789,    '.2e')    # '1.23e+05'
@@ -39,7 +39,7 @@
 >>> complex(2.5, -18.2)     # (2.5 - 18.2j)
 ```
 
-## Function Objects vs. Callables
+## Function Objects vs. Callables           <a name="p4"></a>
 * Function object can only be created with a def statement.
 * Callable is any object that can be called like a function.
 * An instance object can also be called directly; what that yields depends on whether or not the underlying class provides a definition for the **system-supplied call () method.**
@@ -60,7 +60,7 @@ print(xobj())           # [7, 9, 1, 3, 5]
 
 <br />
 
-## Classes, Instances, and Attributes
+## Classes, Instances, and Attributes           <a name="p5"></a>
 For the purpose of writing code, **a class is a data structure with attributes (attributes are also referred to as properties or members).**  
 To endow instances with behaviors, **a class can be provided with methods.**  
 (Methods act as an interface between a program and the properties of a class in the program)
@@ -71,14 +71,14 @@ To endow instances with behaviors, **a class can be provided with methods.**
 * Attributes that take on values on a **per-class** basis are called **class attributes or static attributes or class variables**.  
   (The class variables are shared by all instances or objects of the class.)
 
-## Pre-Defined Attributes for a Class
+## Pre-Defined Attributes for a Class           <a name="p6"></a>
 * ```__name__```    : string name of the class
 * ```__doc__```     : documentation string for the class
 * ```__bases__```   : tuple of parent classes of the class
 * ```__dict__```    : dictionary whose keys are the names of the class variables and the methods of the class and whose values are the corresponding bindings
 * ```__module__```  : module in which the class is defined
 
-## Pre-Defined Attributes for an Instance
+## Pre-Defined Attributes for an Instance           <a name="p7"></a>
 * ```__class__```   : string name of the class from which the instance was constructed
 * ```__dict__```    : dictionary whose keys are the names of the instance variables
 
@@ -148,7 +148,7 @@ print(a_person.__dict__)    # {'name': 'Zaphod', 'age': 114}
 
 <br />
 
-## How Python Creates an Instance from a Class
+## How Python Creates an Instance from a Class          <a name="p8"></a>
 Step 1.  
 * The call to the constructor creates what may be referred to as a generic instance from the class definition.  
 * **The generic instance’s memory allocation is customized with the code in the method ```__new__()``` of the class.**  
@@ -234,7 +234,7 @@ print(D.__mro__)    # (<class '__main__.D'>,
 
 <br />
 
-## Destruction of Instance Objects
+## Destruction of Instance Objects          <a name="p9"></a>
 * **Python comes with an automatic garbage collector.**
 * Each object created is kept track of through reference counting.
 * Each time an object is assigned to a variable, its reference count goes up by one, signifying the fact that there is one more variable holding a reference to the object.
@@ -242,7 +242,7 @@ print(D.__mro__)    # (<class '__main__.D'>,
 * **When the reference count associated with an object goes to zero, it becomes a candidate for garbage collection.**
 * Python provides us with ```__del__()``` for cleaning up beyond what is done by automatic garbage collection.
 
-## Encapsulation, Inheritance, and Polymorphism
+## Encapsulation, Inheritance, and Polymorphism         <a name="p10"></a>
 * **Hiding or controlling access** to the implementation-related attributes and the methods of a class is called encapsulation.
 * **Inheritance** in object-oriented code allows a subclass to inherit some or all of the attributes and methods of its superclass(es).  
   **(The use of ```super()``` comes into play when we implement inheritance. It's used in a child class to refer to the parent class.)**
@@ -250,7 +250,7 @@ print(D.__mro__)    # (<class '__main__.D'>,
   (In programming, polymorphism refers to the same object exhibiting different forms and behaviors.)
 * **Polymorphism** in a nutshell allows us to manipulate instances belonging to the different classes of a hierarchy through a common interface defined for the root class.
 
-## Advantages of Inheritance
+## Advantages of Inheritance            <a name="p11"></a>
 * **Reusability:** Inheritance makes the code reusable.
 * **Code Modification:** Inheritance ensures that all changes are localized and inconsistencies are avioded.
 * **Extensibility:** Using inheritance, one can extend the base class as per the requirements of the derived class.  
@@ -258,7 +258,7 @@ print(D.__mro__)    # (<class '__main__.D'>,
 * **Data Hiding**: The base class can keep some data private so that the derived class cannot alter it.  
   (**This concept is called encapsulation.**)
 
-## Method Overriding, Operator Overloading
+## Method Overriding, Operator Overloading          <a name="p12"></a>
 * **Method overriding** is the process of redefining a parent class's method in a subclass.  
   (In other words, if a subclass provides a specific implementation of a method that had already been defined in one of its parent classes, it is known as method overriding.)
 * When a class is defined, its objects can interact with each other through the operators, but it is **necessary to define the behavior of these operators through operator overloading.**
@@ -295,7 +295,7 @@ obj4 = obj1 - obj2      # obj1.real = 1, obj2.imag = 2
 
 <br />
 
-## Implementing duck typing
+## Implementing duck typing         <a name="p13"></a>
 ```Python
 class Dog:
     def Speak(self): print("Woof woof")
@@ -314,7 +314,7 @@ sound.Sound(dog)    # "Woof woof"
 sound.Sound(cat)    # "Meow meow"
 ```
 
-## Abstract Base Classes (ABC)
+## Abstract Base Classes (ABC)          <a name="p14"></a>
 Abstract base classes define a set of methods and properties that **a class must implement in order to be considered a duck-type instance of that class.**
 
 ```Python
@@ -364,7 +364,7 @@ square.perimeter()  # 16
 
 <br />
 
-## Iterable vs. Iterator
+## Iterable vs. Iterator            <a name="p15"></a>
 ```Python
 import random
 random.seed(0)
@@ -401,7 +401,7 @@ print(iterator.next())  # 9
 
 <br />
 
-## Linked List
+## Linked List          <a name="p16"></a>
 ```python
 from __future__ import print_function
 
