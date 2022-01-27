@@ -5,6 +5,20 @@
     * [Exponential Notation Format](#p3)
     * [Complex Numbers](#p4)
     * [Function Objects vs. Callables](#p5)
+* ### Class
+    * [Classes, Instances, and Attributes](#p6)
+    * [Pre-Defined Attributes for a Class](#p7)
+    * [Pre-Defined Attributes for an Instance](#p8)
+    * [How Python Creates an Instance from a Class](#p9)
+    * [Destruction of Instance Objects](#p10)
+    * [Encapsulation, Inheritance, and Polymorphism](#p11)
+    * [Advantages of Inheritance](#p12)
+    * [Method Overriding, Operator Overloading](#p13)
+    * [Implementing duck typing](#p14)
+    * [Abstract Base Classes (ABC)](#p15)
+    * [Iterable vs. Iterator](#p16)
+* ### Data Structures
+    * [Linked List](#p17)
 
 <br />
 
@@ -315,6 +329,8 @@ cat = Cat()
 sound.Sound(dog)    # "Woof woof"
 sound.Sound(cat)    # "Meow meow"
 ```
+
+<br />
 
 ## Abstract Base Classes (ABC)          <a name="p15"></a>
 Abstract base classes define a set of methods and properties that **a class must implement in order to be considered a duck-type instance of that class.**
