@@ -1,4 +1,6 @@
 # Python Programming
+* [Math Operators](#Math-Operators)
+* [Operator Precedence](#Operator-Precedence)
 
 <br />
 
