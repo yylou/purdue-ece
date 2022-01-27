@@ -1,5 +1,5 @@
 # Python Programming
-* [Basic]
+* ### Basic
     * [Math Operators](#p1)
     * [Operator Precedence](#p2)
     * [Exponential Notation Format](#p3)
