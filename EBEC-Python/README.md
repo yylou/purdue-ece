@@ -1,10 +1,12 @@
 # Python Programming
-* [Math Operators](#Math-Operators)
+* [Math Operators](#p1)
 * [Operator Precedence](#Operator-Precedence)
+* [Exponential Notation Format](#Exponential-Notation-Format)
+* [Complex Numbers](#Complex-Numbers)
 
 <br />
 
-## Math Operators
+## Math Operators <a name="p"></a>
 ```Python
   " +  "    Addition
   " -  "    Subtraction
@@ -395,4 +397,130 @@ for item in xobj: print(item, end=', ')  # 7, 9, 1, 3, 5,
 iterator = iter(xobj)
 print(iterator.next())  # 7
 print(iterator.next())  # 9
+```
+
+<br />
+
+## Linked List
+```python
+from __future__ import print_function
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        """
+        Add new node to the tail of the linked list
+        """
+        new = Node(data)
+        if not self.head: self.head = new
+        else: 
+            cur = self.head
+            while cur.next: cur = cur.next
+            cur.next = new
+
+    def prepend(self, data):
+        """
+        Add new node to the head of the linked list
+        """
+        new = Node(data)
+        new.next = self.head
+        self.head = new
+
+    def insert_after(self, node, data):
+        """
+        Add new node after the specific node
+        """
+        new = Node(data)
+        new.next = node.next
+        node.next = new
+
+    def delete(self, key):
+        """
+        Delete node by searching key as node's data
+        """
+        cur = self.head
+
+        # Node to be deleted is head
+        if cur.data == key:
+            self.head = cur.next
+            cur = None
+
+        # Search for the node to be deleted
+        else:
+            while cur.next and cur.next.data != key: cur = cur.next
+            if cur.next: cur.next = cur.next.next
+
+    def delete_pos(self, pos):
+        """
+        Delete node by its position
+        """
+        # Node to be deleted is head
+        if pos == 0 and self.head:
+            self.head = self.head.next
+        
+        else:
+            cur, prev, index = self.head, None, 0
+            while cur and index != pos:
+                cur, prev, index = cur.next, cur, index+1
+            if cur: prev.next, cur = cur.next, None
+
+    def get_node(self, key):
+        """
+        Retrieve node by key (data)
+        """
+        cur = self.head
+        while cur: 
+            if cur.data == key: return cur
+            cur = cur.next
+
+    def get_len(self):
+        """
+        Get the length of the linked list (iterative)
+        """
+        cur, count = self.head, 0
+        while cur: cur, count = cur.next, count+1
+        return count
+
+    def get_len_recursive(self, node):
+        """
+        Get the length of the linked list (recursive)
+        """
+        if not node: return 0
+        return 1 + self.get_len_recursive(node.next)
+
+    def print_list(self):
+        """
+        Print the linked list from HEAD to the TAIL node
+        """
+        cur = self.head
+        while cur:
+            print(cur.data, end='')
+            cur = cur.next
+        print('')
+
+if __name__ == '__main__':
+    llist = LinkedList()
+    llist.append('B')                               # B
+    llist.prepend('A')                              # AB
+    llist.insert_after(llist.get_node('B'), 'C')    # ABC
+    llist.insert_after(llist.get_node('C'), 'D')    # ABCD
+    print(llist.get_len())                          # 4
+
+    llist.delete("B")                               # ACD
+    llist.delete("E")                               # ACD
+    llist.print_list()
+
+    llist.insert_after(llist.get_node('A'), 'B')    # ABCD
+    llist.delete_pos(2)                             # ABD
+    llist.print_list()
+
+    print(llist.get_len())                          # 3
+    print(llist.get_len_recursive(llist.head))      # 3
 ```
