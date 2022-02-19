@@ -9,7 +9,7 @@
 
 <br />
 
-## Math Operators           <a name="p1"></a>
+## Math Operators                       <a name="p1"></a>
 ```Python
   " +  "    Addition
   " -  "    Subtraction
@@ -20,7 +20,7 @@
   " %  "    Modulus (Remainder)
 ```
 
-## Operator Precedence           <a name="p2"></a>
+## Operator Precedence                  <a name="p2"></a>
 ```Python
   (1)  Parentheses      " () "
   (2)  Exponentiation   " ** "
@@ -36,13 +36,13 @@
 >>> format(0.00000123456, '.4E')    # '1.2346E-06'
 ```
 
-## Complex Numbers          <a name="p4"></a>
+## Complex Numbers                      <a name="p4"></a>
 ```Python
 >>> complex(10,   20)       # (10  + 20j)
 >>> complex(2.5, -18.2)     # (2.5 - 18.2j)
 ```
 
-## Function Objects vs. Callables           <a name="p5"></a>
+## Function Objects vs. Callables       <a name="p5"></a>
 * Function object can only be created with a def statement.
 * Callable is any object that can be called like a function.
 * An instance object can also be called directly; what that yields depends on whether or not the underlying class provides a definition for the **system-supplied call () method.**
