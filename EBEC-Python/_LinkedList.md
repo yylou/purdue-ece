@@ -1,24 +1,23 @@
 # Python Programming
 * ### [Menu](./README.md)
 * ### Data Structures - Linked List
-    * Functionalities
-        * Append / Prepend / Insert / Delete / Length
-        * Swap Data / Swap Nodes
-        * Reverse
-        * Remove n-th Last Node
-        * Merge Two Linked Lists
-        * Remove Duplicates
-        * Rotate
-    * LeetCode Problems
-        * [0002. Add Two Numbers (Medium)](https://leetcode.com/problems/add-two-numbers/)]
-        * [0009. Palindrome Number (Easy)](https://leetcode.com/problems/palindrome-number/)
-        * [0019. Remove Nth Node From End of List (Medium)](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
-        * [0021. Merge Two Sorted Lists (Easy)](https://leetcode.com/problems/merge-two-sorted-lists/)
-        * [0061. Rotate List (Medium)](https://leetcode.com/problems/rotate-list/)
-        * [0083. Remove Duplicates from Sorted List (Easy)](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
-        * [0206. Reverse Linked List (Easy)](https://leetcode.com/problems/reverse-linked-list/)
-        * [0234. Palindrome Linked List (Easy)](https://leetcode.com/problems/palindrome-linked-list/)
-        * [0445. Add Two Numbers II (Medium)](https://leetcode.com/problems/add-two-numbers-ii/)
+    * Append / Prepend / Insert / Delete / Length
+    * Swap Data / Swap Nodes
+    * Reverse
+    * Remove n-th Last Node
+    * Merge Two Linked Lists
+    * Remove Duplicates
+    * Rotate
+* LeetCode Problems
+    * [0002. Add Two Numbers (Medium)](https://leetcode.com/problems/add-two-numbers/)]
+    * [0009. Palindrome Number (Easy)](https://leetcode.com/problems/palindrome-number/)
+    * [0019. Remove Nth Node From End of List (Medium)](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+    * [0021. Merge Two Sorted Lists (Easy)](https://leetcode.com/problems/merge-two-sorted-lists/)
+    * [0061. Rotate List (Medium)](https://leetcode.com/problems/rotate-list/)
+    * [0083. Remove Duplicates from Sorted List (Easy)](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+    * [0206. Reverse Linked List (Easy)](https://leetcode.com/problems/reverse-linked-list/)
+    * [0234. Palindrome Linked List (Easy)](https://leetcode.com/problems/palindrome-linked-list/)
+    * [0445. Add Two Numbers II (Medium)](https://leetcode.com/problems/add-two-numbers-ii/)
 
 <br />
 
