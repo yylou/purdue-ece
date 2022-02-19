@@ -1,10 +1,10 @@
 # Python Programming
-* ### Basic
-    * [Math Operators](#p1)
-    * [Operator Precedence](#p2)
-    * [Exponential Notation Format](#p3)
-    * [Complex Numbers](#p4)
-    * [Function Objects vs. Callables](#p5)
+* ### [Basic](./_basic.md)
+    * Math Operators
+    * Operator Precedence
+    * Exponential Notation Format
+    * Complex Numbers
+    * Function Objects vs. Callables
 * ### Class
     * [Classes, Instances, and Attributes](#p6)
     * [Pre-Defined Attributes for a Class](#p7)
@@ -18,7 +18,7 @@
     * [Abstract Base Classes (ABC)](#p15)
     * [Iterable vs. Iterator](#p16)
 * ### Data Structures
-    * [Linked List](#p17)
+    * [Linked List (w/ Leetcode Problems)](#p17)
 
 <br />
 
