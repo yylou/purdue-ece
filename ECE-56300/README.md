@@ -12,4 +12,4 @@
 
 
 ## Final Project - Map Reduce
-![Architecture](./doc/fig/Architecture.png "Architecture")
+![Architecture](./project/fig/Architecture.png "Architecture")
