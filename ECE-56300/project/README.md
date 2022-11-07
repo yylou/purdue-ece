@@ -4,6 +4,16 @@
 * **Language**: C/C++
 * **Implementation**: OpenMP, MPI, Hybrid
 
+## Timeline
+``` text
+Nov 07: Initialization
+├── Nov 11: 
+├── Nov 18: 
+├── Nov 25: 
+├── Dec 02: 
+└── Dec 09: 
+```
+
 ## Directory Structure
 ``` text
 project
