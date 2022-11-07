@@ -25,12 +25,12 @@ project
 ├── fig
 │   └── Architecture.png
 │
-├── src         # Codebase <------------------------\
-│   └──                                             |
-│                                                   |
-├── user-Cheng  # OpenMP or MPI                     |
-├── user-Fang   # OpenMP or MPI                     |
-├── user-Lou    # Skeleton code / Report <----------/
+├── src             # Codebase <------------------------\
+│   └──             #                                   |
+│                   #                                   |
+├── user-Cheng      # OpenMP or MPI                     |
+├── user-Fang       # OpenMP or MPI                     |
+├── user-Lou        # Skeleton code / Report <----------/
 │
 └── README.md
 ```
