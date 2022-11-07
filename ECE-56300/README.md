@@ -12,4 +12,4 @@
 
 
 ## Final Project - Map Reduce
-![](https://github.com/yylou/purdue-ece/blob/main/ECE-56300/doc/pdf/Architecture.png)
+![](doc/pdf/Architecture.png)
