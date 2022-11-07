@@ -7,9 +7,9 @@
 * [Homework 6](#)
 * [Homework 7](#)
 * [Homework 8](#)
-* [Final Project - MapReduce](#Final-Project)
+* [Final Project - MapReduce](#Final-Project-Map-Reduce)
 <br />
 
 
-## Final Project
-![](./doc/Architecture.png)
+## Final Project - Map Reduce
+![](https://github.com/yylou/purdue-ece/blob/main/ECE-56300/doc/pdf/Architecture.pdf)
