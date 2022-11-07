@@ -6,7 +6,7 @@
 
 ## Timeline
 ``` text
-Nov 07: Initialization
+┌── Nov 07: Initialization
 ├── Nov 11: 
 ├── Nov 18: 
 ├── Nov 25: 
