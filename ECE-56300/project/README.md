@@ -37,7 +37,7 @@ project
 
 ## Setup
 ``` shell
-1. Hello world
+1. 
 2. 
 3. 
 4. 
