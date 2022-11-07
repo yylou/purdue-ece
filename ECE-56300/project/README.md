@@ -17,17 +17,29 @@
 ```
 
 ## Directory Structure
-``` text
+``` python
 project
 ├── doc
 │   └── Architecture.pdf
+│
 ├── fig
 │   └── Architecture.png
-├── src
-├── user-Cheng
-├── user-Fang
-├── user-Lou
+│
+├── src         # Codebase <------------------------\
+│   └──                                             |
+│                                                   |
+├── user-Cheng  # OpenMP or MPI                     |
+├── user-Fang   # OpenMP or MPI                     |
+├── user-Lou    # Skeleton code / Report <----------/
+│
 └── README.md
 ```
 
-
+## Setup
+``` shell
+1. Hello world
+2. 
+3. 
+4. 
+5. 
+```
