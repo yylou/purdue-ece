@@ -4,6 +4,8 @@
 * **Language**: C/C++
 * **Implementation**: OpenMP, MPI, Hybrid
 
+<br />
+
 ## Timeline
 ``` text
 ┌── Nov 07: Initialization
