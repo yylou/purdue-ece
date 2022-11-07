@@ -12,4 +12,4 @@
 
 
 ## Final Project
-[Architecture](./Architecture.pdf)
+![Architecture](./Architecture.pdf)
