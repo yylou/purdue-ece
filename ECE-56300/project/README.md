@@ -28,9 +28,9 @@ project
 ├── src             # Codebase <------------------------\
 │   └──             #                                   |
 │                   #                                   |
-├── user-Cheng      # OpenMP or MPI                     |
-├── user-Fang       # OpenMP or MPI                     |
-├── user-Lou        # Skeleton code / Report <----------/
+├── user-Arnold     # OpenMP or MPI                     |
+├── user-Jeff       # OpenMP or MPI                     |
+├── user-Mike       # Skeleton code / Report <----------/
 │
 └── README.md
 ```
