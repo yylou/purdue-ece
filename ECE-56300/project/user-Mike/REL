@@ -1,0 +1,2 @@
+rm -rf ../main/*
+rsync -av --exclude REL --exclude makefile --exclude ECE563-Project . ../main
