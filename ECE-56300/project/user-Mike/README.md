@@ -3,9 +3,8 @@
 user-Mike
 │
 ├── bin
-│   ├── 
-│   ├── 
-│   └── 
+│   ├── serial.o
+│   └── openmp.o
 │
 ├── data -> ../data
 ├── include
