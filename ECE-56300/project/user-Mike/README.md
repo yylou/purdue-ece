@@ -1,13 +1,31 @@
 ## Directory Structure
 ``` python
 user-Mike
-├── 
-├── 
-├── 
-├── 
-├──
-├──
-└── README.md
+│
+├── bin
+│   ├── 
+│   ├── 
+│   └── 
+│
+├── data -> ../data
+├── include
+│   ├── 
+│   ├── 
+│   └── 
+│
+├── src
+│   ├── 
+│   ├── 
+│   └── 
+│
+├── main.cpp
+├── makefile
+├── serial.o -> ./bin/serial.o
+├── openmp.o -> ./bin/openmp.o
+│
+├── files.zip
+├── README.md
+└── REL
 ```
 
 ## Setup
