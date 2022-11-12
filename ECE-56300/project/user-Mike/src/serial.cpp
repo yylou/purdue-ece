@@ -67,5 +67,5 @@ void algo_Serial(int maxThreads) {
         getReducer(tid, 20);
     }
 
-    // printWordCount();
+    printWordCount();
 }

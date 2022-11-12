@@ -54,6 +54,7 @@ void init(int maxThreads) {
 
 
 
+
 }
 
 int getMapperQueueSize (int queueId) { return contentQueueContainer[queueId].size(); }
@@ -66,8 +67,7 @@ void wrapWorkItems(int queueId, std::string line) {
     
     std::string word;    
     for (std::istringstream is(line) ; is>>word ; ) {
-        if (word == " ") continue;
-        if (line.empty()) continue;
+        if (word == " " || line.empty()) continue;
         WorkItem workItem(word, 1);
 
         /*  LOCK ACQUIRE  */
