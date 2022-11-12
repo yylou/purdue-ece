@@ -24,7 +24,8 @@ project
 │   └── Architecture.pdf
 │
 ├── fig
-│   └── Architecture.png
+│   ├── Architecture.png
+│   └── Folder.png
 │
 ├── data
 │   ├── renew       # Cmd to unzip input files
