@@ -1,4 +1,8 @@
+# System
+![Architecture](./../fig/Architecture.png "Architecture")
+
 ## Directory Structure
+![Folder](./../fig/Folder.png "Folder")
 ``` python
 user-Mike
 │
