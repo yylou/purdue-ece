@@ -6,29 +6,33 @@
 ``` python
 user-Mike
 │
+├── data -> ../data
 ├── bin
 │   ├── serial.o
-│   └── openmp.o
-│
-├── data -> ../data
-├── include
-│   ├── 
-│   ├── 
-│   └── 
+│   ├── openmp.o
+│   └── mpi.o
 │
 ├── src
-│   ├── 
-│   ├── 
-│   └── 
+│   ├── algo.cpp
+│   ├── serial.cpp
+│   ├── openmp.cpp
+│   ├── mpi.cpp
+│   └── utility.cpp
 │
+├── include
+│   ├── algo.hpp
+│   └── utility.hpp
+│
+├── makefile                        # compile, run
 ├── main.cpp
-├── makefile
+│
 ├── serial.o -> ./bin/serial.o
 ├── openmp.o -> ./bin/openmp.o
+├── mpi.o    -> ./bin/mpi.o
 │
 ├── files.zip
 ├── README.md
-└── REL
+└── REL                             # rsync to "main" folder
 ```
 
 ## Setup
