@@ -1,4 +1,4 @@
-# System
+## System
 ![Architecture](./../fig/Architecture.png "Architecture")
 
 ## Directory Structure
@@ -30,9 +30,10 @@ user-Mike
 ├── openmp.o -> ./bin/openmp.o
 ├── mpi.o    -> ./bin/mpi.o
 │
-├── files.zip
 ├── README.md
-└── REL                             # rsync to "main" folder
+├── REL                             # rsync to "main" folder
+├── result.log                      # wordCount results
+└── files.zip                       # input files
 ```
 
 ## Setup
