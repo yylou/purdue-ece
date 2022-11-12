@@ -9,11 +9,12 @@
 ## Timeline
 ``` text
 ┌── Nov 07: Initialization
-├── Nov 11: 
-├── Nov 18: 
-├── Nov 25: 
-├── Dec 02: 
-└── Dec 09: 
+├── Nov 11: Project setup / Serial version
+├── Nov 12: Deliver
+├── Nov 18: (dev)
+├── Nov 25: (dev)
+├── Dec 02: Review / Report
+└── Dec 09: Submission
 ```
 
 ## Directory Structure
