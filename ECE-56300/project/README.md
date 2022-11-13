@@ -62,7 +62,7 @@ project
 │   ├── mpi.o    -> ./bin/mpi.o                         #   |
 │   │                                                   #   |
 │   ├── README.md                                       #   |
-│   ├── REL                                             #   |   rsync to "main" folder
+│   ├── REL                                             #   |   rsync with "main" folder
 │   ├── result.log                                      #   |   wordCount results
 │   └── files.zip                                       #   |   input files archived
 │                                                       #   |
