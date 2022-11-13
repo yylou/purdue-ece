@@ -53,7 +53,7 @@ void algo_Serial(int maxThreads) {
             1. COMBINE records by SIZE=20
             2. PUSH to reducer queue by hash function
         */
-        putReducer(tid, 20);
+        putReducer(tid, 20);    // aka. getMapper(...)
 
     }
 

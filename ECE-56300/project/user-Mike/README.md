@@ -38,12 +38,3 @@ user-Mike
 
 ## Algorithms
 ![Algorithms](./../fig/Algorithms.png "Algorithms")
-
-## Compile
-``` shell
-1. 
-2. 
-3. 
-4. 
-5. 
-```

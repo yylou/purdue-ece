@@ -18,6 +18,7 @@ Version : v1.0
 
 int main (int argc, char *argv[]) {
     
+    
     const int maxThreads = atoi(argv[1]);
     char* type = argv[2];
     char* mode = argv[3];
@@ -25,6 +26,7 @@ int main (int argc, char *argv[]) {
     const std::string parall = "parall";
     const std::string opnemp = "omp";
     const std::string mpi    = "mpi";
+
 
     /* =========================================================================== *\
     |    Serial (simulate parallel version)

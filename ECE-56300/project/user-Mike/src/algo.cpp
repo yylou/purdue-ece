@@ -26,19 +26,19 @@ std::map<int,std::vector<std::string>> filesMap;        // for reader threads to
 QueueContainer contentQueueContainer;                   // [MAPPER  QUEUE] for reader threads to put work items
 QueueContainer dataQueueContainer;                      // [REDUCER QUEUE] for mapper threads to put combined record
 int threads = 0;                                        // for mapper to put work items to reducer queues by hashing
-std::map<int,int> readersClockIn;                       // for mapper to stop pushing work items to reducer queues
-int mappersClockIn;                                     // for reducer to stop getting work items from reducer queues
+std::map<int,int> readersClockOut;                      // for mapper to stop pushing work items to reducer queues
+int mappersClockOut;                                    // for reducer to stop getting work items from reducer queues
 std::map<std::string,int> hashTable;                    // [FINAL ANSWER]
 
 void init(int maxThreads) {
     threads = maxThreads;
     
-    int filesPerThread = numFiles / threads;
-    int remain = numFiles - filesPerThread * threads;
+    int filesPerThread = numFiles / threads;            // ──┐ divmod 
+    int remain = numFiles - filesPerThread * threads;   // ──┘ 
 
     /*  (1) Queue Container: each element is a queue for a specific thread  */
     int prev = 1;
-    for (int tid=0 ; tid<maxThreads ; ++tid) {
+    for (int tid=0 ; tid<threads ; ++tid) {
         contentQueueContainer.emplace_back(std::queue<WorkItem>());
         dataQueueContainer.emplace_back(std::queue<WorkItem>());
 
@@ -51,8 +51,6 @@ void init(int maxThreads) {
     }
 
     /*  (3) Lock initialization  */
-
-
 
 
 }
@@ -94,7 +92,7 @@ void putMapper(int queueId) {
             log("FILE NOT FOUND", fileName+"\n", 0);
         }
 
-        ++readersClockIn[queueId];                  // reader clocks in when finishing
+        ++readersClockOut[queueId];                  // reader clocks in when finishing
     }
 }
 
@@ -103,9 +101,9 @@ void putReducer(int queueId, int size) {
     std::hash<std::string> hash;
     std::vector<WorkItem> workItems;
     std::map<std::string,int> counter;
-    if (getMapperQueueSize(queueId) == 0) return;
+    if (getMapperQueueSize(queueId) == 0) return;   // REMOVE for parallel version
 
-    while (readersClockIn[queueId] < filesMap[queueId].size() ||
+    while (readersClockOut[queueId] < filesMap[queueId].size() ||
            getMapperQueueSize(queueId) > 0) {       // TRUE @ reader is reading OR queue is not empty
         
         /*  (1) GET work items  */
@@ -159,16 +157,15 @@ void putReducer(int queueId, int size) {
         counter.clear();
     }
 
-    mappersClockIn++;   // mapper clocks in when finishing
+    mappersClockOut++;   // mapper clocks in when finishing
 }
 
 void getReducer(int queueId, int size) {
     int batch = size;
     std::vector<WorkItem> workItems;
-    if (getReducerQueueSize(queueId) == 0) return;
+    if (getReducerQueueSize(queueId) == 0) return;  // REMOVE for parallel version
 
-
-    while (mappersClockIn < threads ||
+    while (mappersClockOut < threads ||
            getReducerQueueSize(queueId) > 0) {      // TRUE @ mapper is combining OR queue is not empty
         
         batch = size;
@@ -186,7 +183,7 @@ void getReducer(int queueId, int size) {
 
         for (const auto& iter : workItems) {
             #ifdef LOG
-            printf("%50s  |  %10d  |  key: %zu\n", iter.word.c_str(), iter.count, hash(iter.word));
+            printf("%50s  |  %10d\n", iter.word.c_str(), iter.count);
             #endif
             
             hashTable[iter.word]++;
