@@ -6,24 +6,26 @@
 
 <br />
 
-## Timeline
+## Milestone
 ``` text
-┌── Nov 07: Initialization
-├── Nov 11: Project setup / Serial version
-├── Nov 12: Deliver
-├── Nov 18: (dev)
-├── Nov 25: (dev)
-├── Dec 02: Review / Report
-└── Dec 09: Submission
+┌── [O]  Nov 07: Initialization
+├── [O]  Nov 11: Project setup / Serial version
+├── [O]  Nov 12: Deliver
+├── [X]  Nov 18: (dev)
+├── [X]  Nov 25: (dev)
+├── [X]  Dec 02: Review / Report
+└── [X]  Dec 09: Submission
 ```
 
 ## Directory Structure
 ``` python
 project
 ├── doc
-│   └── Architecture.pdf
+│   ├── Architecture.pdf
+│   └── Slides.pdf
 │
 ├── fig
+│   ├── Algorithms.png
 │   ├── Architecture.png
 │   └── Folder.png
 │
@@ -46,14 +48,8 @@ project
 └── README.md
 ```
 
-## Setup
-``` shell
-1. 
-2. 
-3. 
-4. 
-5. 
-```
+## Algorithms
+![Algorithms](./fig/Algorithms.png "Algorithms")
 
 ## Evaluation
 ``` text
@@ -64,11 +60,11 @@ project
 4. 
 5. 
 
-[SPEEDUP (#FILES=16)]
+[SPEEDUP (#FILES=15)]
 1. Serial
-2. OpenMP: 1, 2, 4, 8, 16 (threads)
-3. MPI: 1, 2, 4, 8, 16 (nodes) with 16 threads (each core)
-4. Hybrid: (same as MPI)
+2. OpenMP: 1, 2, 4, 8 (threads)
+3. MPI: 1, 2, 4, 8 (nodes) with 3 threads (each core)
+4. Hybrid: (OpenMP + MPI)
 
 [PERFORMANCE]
 1. Karp-Flatt Analysis
