@@ -11,10 +11,10 @@
 ┌── [O]  Nov 07: Initialization
 ├── [O]  Nov 11: Project setup / Serial version
 ├── [O]  Nov 12: Deliver
-├── [X]  Nov 18: (dev)
-├── [X]  Nov 25: (dev)
-├── [X]  Dec 02: Review / Report
-└── [X]  Dec 09: Submission
+├── [ ]  Nov 18: (dev)
+├── [ ]  Nov 25: (dev)
+├── [ ]  Dec 02: Review / Report
+└── [!]  Dec 09: Submission
 ```
 
 ## Directory Structure
