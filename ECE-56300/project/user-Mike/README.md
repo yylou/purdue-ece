@@ -36,7 +36,9 @@ user-Mike
 └── files.zip                       # input files
 ```
 
-## Setup
+## Algorithms
+
+## Compile
 ``` shell
 1. 
 2. 

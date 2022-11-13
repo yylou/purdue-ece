@@ -27,7 +27,7 @@ QueueContainer contentQueueContainer;                   // [MAPPER  QUEUE] for r
 QueueContainer dataQueueContainer;                      // [REDUCER QUEUE] for mapper threads to put combined record
 int threads = 0;                                        // for mapper to put work items to reducer queues by hashing
 std::map<int,int> readersClockIn;                       // for mapper to stop pushing work items to reducer queues
-int mappersClockIn;                                     // for mapper to stop pushing work items to reducer queues
+int mappersClockIn;                                     // for reducer to stop getting work items from reducer queues
 std::map<std::string,int> hashTable;                    // [FINAL ANSWER]
 
 void init(int maxThreads) {
