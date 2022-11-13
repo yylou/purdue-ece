@@ -36,14 +36,42 @@ project
 │   ├── (...)       # ──┤ Input files
 │   └── 16.txt      # ──┘
 │
-├── main            # Codebase <------------------------\
-│   └──             #                                   |
-│                                                     # |
-│                                                     # | (through rsync)
-│                                                     # | 
-├── user-Arnold     # OpenMP or MPI                     |
-├── user-Jeff       # OpenMP or MPI                     |
-├── user-Mike       # Skeleton code / Report <----------/
+├── main            # Codebase <----------------------------\   
+│   ├── data -> ../data                                 #   |
+│   ├── bin                                             #   |   (binary executable files)
+│   │   ├── serial.o                                    #   |
+│   │   ├── openmp.o                                    #   |
+│   │   └── mpi.o                                       #   |
+│   │                                                   #   |
+│   ├── src                                             #   |   (algorithms part)
+│   │   ├── algo.cpp                                    #   |   CORE cpp files
+│   │   ├── serial.cpp                                  #   |
+│   │   ├── openmp.cpp                                  #   |
+│   │   ├── mpi.cpp                                     #   |
+│   │   └── utility.cpp                                 #   |
+│   │                                                   #   |
+│   ├── include                                         #   |   (header files)
+│   │   ├── algo.hpp                                    #   |
+│   │   └── utility.hpp                                 #   |
+│   │                                                   #   |
+│   ├── makefile                                        #   |   compile, run
+│   ├── main.cpp                                        #   |
+│   │                                                   #   |
+│   ├── serial.o -> ./bin/serial.o                      #   |
+│   ├── openmp.o -> ./bin/openmp.o                      #   |
+│   ├── mpi.o    -> ./bin/mpi.o                         #   |
+│   │                                                   #   |
+│   ├── README.md                                       #   |
+│   ├── REL                                             #   |   rsync to "main" folder
+│   ├── result.log                                      #   |   wordCount results
+│   └── files.zip                                       #   |   input files archived
+│                                                       #   |
+│                                                       #   |
+│                                                       #   |
+│                                                       #   | 
+├── user-Arnold     # OpenMP or MPI                         |
+├── user-Jeff       # OpenMP or MPI                         |
+├── user-Mike       # Skeleton code / Report ---------------/   (SYNC through rsync cmd)
 │
 └── README.md
 ```
