@@ -36,7 +36,7 @@ void init(int maxThreads) {
     int filesPerThread = numFiles / threads;
     int remain = numFiles - filesPerThread * threads;
 
-    /* (1) Queue Container: each element is a queue for a specific thread  */
+    /*  (1) Queue Container: each element is a queue for a specific thread  */
     int prev = 1;
     for (int tid=0 ; tid<maxThreads ; ++tid) {
         contentQueueContainer.emplace_back(std::queue<WorkItem>());
@@ -50,7 +50,7 @@ void init(int maxThreads) {
         prev = fid;
     }
 
-    /* (3) Lock initialization */
+    /*  (3) Lock initialization  */
 
 
 
@@ -108,6 +108,7 @@ void putReducer(int queueId, int size) {
     while (readersClockIn[queueId] < filesMap[queueId].size() ||
            getMapperQueueSize(queueId) > 0) {       // TRUE @ reader is reading OR queue is not empty
         
+        /*  (1) GET work items  */
         batch = size;
         while (getMapperQueueSize(queueId) > 0 && batch-- > 0) {
             workItems.push_back(contentQueueContainer[queueId].front());
@@ -121,6 +122,7 @@ void putReducer(int queueId, int size) {
         log("Combine", "\n", 0);
         #endif
 
+        /*  (2) COMBINE records (work items)  */
         for (const auto& iter : workItems) {
             #ifdef LOG
             printf("%50s  |  %10d  |  key: %zu\n", iter.word.c_str(), iter.count, hash(iter.word));
@@ -134,6 +136,7 @@ void putReducer(int queueId, int size) {
         int tmpCounter = 0;
         #endif
         
+        /*  (3) PUSH to reducer queue by hash functions  */
         for (const auto& [word, count] : counter) {
             #ifdef LOG
             printf("%50s  |  %10d  |  key: %zu\n", word.c_str(), count, hash(word));
@@ -141,7 +144,7 @@ void putReducer(int queueId, int size) {
             #endif
             
             WorkItem workItem_(word, count);
-            int reducerQueueId = hash(word) % threads;
+            int reducerQueueId = hash(word) % threads;  // hash to get recuder queue id
 
             /*  LOCK ACQUIRE  */
             dataQueueContainer[reducerQueueId].push(workItem_);

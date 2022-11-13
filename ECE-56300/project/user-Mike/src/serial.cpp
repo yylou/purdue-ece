@@ -49,6 +49,7 @@ void algo_Serial(int maxThreads) {
     #endif
     for (int tid=0 ; tid<threads ; tid++) {
         /*  [STEP 2]
+            (for each thread)
             1. COMBINE records by SIZE=20
             2. PUSH to reducer queue by hash function
         */
@@ -61,6 +62,7 @@ void algo_Serial(int maxThreads) {
     #endif
     for (int tid=0 ; tid<threads ; tid++) {
         /*  [STEP 3]
+            (for each thread)
             1. GET combined records by SIZE=20
             2. COUNT words
         */

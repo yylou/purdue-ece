@@ -37,6 +37,7 @@ user-Mike
 ```
 
 ## Algorithms
+![Algorithms](./../fig/Algorithms.png "Algorithms")
 
 ## Compile
 ``` shell
