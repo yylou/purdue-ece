@@ -30,8 +30,8 @@ project
 │   └── Folder.png
 │
 ├── data
-│   ├── renew       # Cmd to unzip input files
-│   ├── files.zip   # Symbolic link to zipped archive file
+│   ├── renew
+│   ├── files.zip -> ../main/files.zip
 │   ├── 1.txt       # ──┐
 │   ├── (...)       # ──┤ Input files
 │   └── 16.txt      # ──┘
