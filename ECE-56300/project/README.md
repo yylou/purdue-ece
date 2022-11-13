@@ -85,8 +85,6 @@ project
 1. 
 2. 
 3. 
-4. 
-5. 
 
 [SPEEDUP (#FILES=15)]
 1. Serial
