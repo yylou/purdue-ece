@@ -11,6 +11,7 @@
 BUILD_DIR   :=  ./bin
 INCLUDES    :=  -I ./include
 SER_TARGET  :=  serial.o
+OMP_TARGET  :=  openmp.o
 ROOT_DIR    :=  ./
 SRC_DIR     :=  ./src
 SOURCES     :=  $(wildcard $(ROOT_DIR)/*.cpp $(SRC_DIR)/*.cpp)
@@ -28,17 +29,21 @@ serial:
 parallel:
 	$(MKDIR)
 	@echo "[ `date +'%Y-%m-%d %H:%M:%S'` ]      Compiling parallel version"
+	@g++ $(CXXFLAGS) -fopenmp $(INCLUDES) $(SOURCES) -o $(BUILD_DIR)/$(OMP_TARGET)
+	@rm $(OMP_TARGET)
+	@ln -s $(BUILD_DIR)/$(OMP_TARGET) .
+
 
 run_serial:
 	./$(SER_TARGET) 8 serial none
 
 run_omp:
-	./$(SER_TARGET) 16 parall omp
+	./$(OMP_TARGET) 6 parall omp
 
 run_mpi:
 	./$(SER_TARGET) 16 parall mpi
 
-all: clean serial run_serial
+all: clean parallel 
 
 clean:
 	@rm -r $(BUILD_DIR)

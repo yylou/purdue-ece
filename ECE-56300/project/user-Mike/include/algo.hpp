@@ -35,5 +35,5 @@ void getReducer(int queueId, int size);
 void printWordCount();
 
 void algo_Serial(int maxThreads);
-void algo_OpenMP();
+void algo_OpenMP(int maxThreads);
 void algo_MPI();

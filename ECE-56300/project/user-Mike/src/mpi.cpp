@@ -9,7 +9,7 @@ Project : Purdue ECE56300 - Project
 Version : v1.0 (MPI version)
 */
 
-#include <mpi.h>
+//#include <mpi.h>
 #include <omp.h>
 
 #include <utility.hpp>

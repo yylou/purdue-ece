@@ -9,13 +9,13 @@ Project : Purdue ECE56300 - Project
 Version : v1.0 (Data Structures and Algorithms)
 */
 
-#include <mpi.h>
-#include <omp.h>
+//#include <mpi.h>
+
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <map>
-
+#include <omp.h>
 #include <utility.hpp>
 #include <algo.hpp>
 
@@ -29,6 +29,8 @@ int threads = 0;                                        // for mapper to put wor
 std::map<int,int> readersClockOut;                      // for mapper to stop pushing work items to reducer queues
 int mappersClockOut;                                    // for reducer to stop getting work items from reducer queues
 std::map<std::string,int> hashTable;                    // [FINAL ANSWER]
+
+
 
 void init(int maxThreads) {
     threads = maxThreads;
@@ -49,10 +51,6 @@ void init(int maxThreads) {
         }
         prev = fid;
     }
-
-    /*  (3) Lock initialization  */
-
-
 }
 
 int getMapperQueueSize (int queueId) { return contentQueueContainer[queueId].size(); }
@@ -69,8 +67,13 @@ void wrapWorkItems(int queueId, std::string line) {
         WorkItem workItem(word, 1);
 
         /*  LOCK ACQUIRE  */
+        omp_lock_t lck;
+        omp_init_lock (&lck); 
+        omp_set_lock(&lck);
         contentQueueContainer[queueId].push(workItem);
         /*  LOCK RELEASE  */
+        omp_unset_lock(&lck);
+        omp_destroy_lock(&lck);
     }
 }
 
@@ -92,11 +95,19 @@ void putMapper(int queueId) {
             log("FILE NOT FOUND", fileName+"\n", 0);
         }
 
+        /*  LOCK ACQUIRE  */
+        omp_lock_t lck;
+        omp_init_lock (&lck); 
+        omp_set_lock(&lck);
         ++readersClockOut[queueId];                  // reader clocks in when finishing
+        /*  LOCK RELEASE  */
+        omp_unset_lock(&lck);
+        omp_destroy_lock(&lck);
     }
 }
 
 void putReducer(int queueId, int size) {
+ 
     int batch = size;
     std::hash<std::string> hash;
     std::vector<WorkItem> workItems;
@@ -108,26 +119,39 @@ void putReducer(int queueId, int size) {
         
         /*  (1) GET work items  */
         batch = size;
+
         while (getMapperQueueSize(queueId) > 0 && batch-- > 0) {
             workItems.push_back(contentQueueContainer[queueId].front());
             
             /*  LOCK ACQUIRE  */
+            omp_lock_t lck;
+            omp_init_lock(&lck); 
+            omp_set_lock(&lck);
             contentQueueContainer[queueId].pop();
             /*  LOCK RELEASE  */
+            omp_unset_lock(&lck);
+            omp_destroy_lock(&lck);
         }
+
 
         #ifdef LOG
         log("Combine", "\n", 0);
         #endif
 
         /*  (2) COMBINE records (work items)  */
+
         for (const auto& iter : workItems) {
             #ifdef LOG
             printf("%50s  |  %10d  |  key: %zu\n", iter.word.c_str(), iter.count, hash(iter.word));
             #endif
-            
+            omp_lock_t lck2;
+            omp_init_lock(&lck2); 
+            omp_set_lock(&lck2);            
             ++counter[iter.word];
+            omp_unset_lock(&lck2);
+            omp_destroy_lock(&lck2);
         }
+
 
         #ifdef LOG
         log("Push (mapper -> reducer)", "\n", 0);
@@ -135,6 +159,7 @@ void putReducer(int queueId, int size) {
         #endif
         
         /*  (3) PUSH to reducer queue by hash functions  */
+
         for (const auto& [word, count] : counter) {
             #ifdef LOG
             printf("%50s  |  %10d  |  key: %zu\n", word.c_str(), count, hash(word));
@@ -145,9 +170,15 @@ void putReducer(int queueId, int size) {
             int reducerQueueId = hash(word) % threads;  // hash to get recuder queue id
 
             /*  LOCK ACQUIRE  */
+            omp_lock_t lck1;
+            omp_init_lock (&lck1); 
+            omp_set_lock(&lck1);
             dataQueueContainer[reducerQueueId].push(workItem_);
             /*  LOCK RELEASE  */
+            omp_unset_lock(&lck1);
+            omp_destroy_lock(&lck1);
         }
+
 
         #ifdef LOG
         printf("%50s  |  %10d  |\n", "(total)", tmpCounter);
@@ -173,8 +204,13 @@ void getReducer(int queueId, int size) {
             workItems.push_back(dataQueueContainer[queueId].front());
             
             /*  LOCK ACQUIRE  */
+            omp_lock_t lck;
+            omp_init_lock (&lck); 
+            omp_set_lock(&lck);
             dataQueueContainer[queueId].pop();
             /*  LOCK RELEASE  */
+            omp_unset_lock(&lck);
+            omp_destroy_lock(&lck);
         }
 
         #ifdef LOG

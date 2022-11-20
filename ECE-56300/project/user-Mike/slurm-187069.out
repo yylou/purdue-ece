@@ -1,0 +1,3 @@
+*** Error in `./openmp.o': malloc(): memory corruption: 0x00002b7a7c0030b0 ***
+*** Error in `./openmp.o': malloc(): memory corruption: 0x00002b7a6c003130 ***
+/var/spool/slurm/job187069/slurm_script: line 8: 124723 Segmentation fault      ./openmp.o 6 parall omp

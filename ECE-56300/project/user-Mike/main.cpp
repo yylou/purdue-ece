@@ -12,7 +12,6 @@ Version : v1.0
 #include <stdlib.h>
 #include <stdio.h>
 #include <cstring>
-
 #include <utility.hpp>
 #include <algo.hpp>
 
@@ -49,7 +48,8 @@ int main (int argc, char *argv[]) {
         if (compareString(mode, opnemp.c_str())) { 
             
             log("Running parallel version: OPENMP", "src/openmp.cpp\n", 1);
-            algo_OpenMP();
+
+            algo_OpenMP(maxThreads);
 
 
         /* ----------------------------------------------------------------------- *\

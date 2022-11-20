@@ -11,7 +11,7 @@ Version : v1.0 (utility header file)
 
 #include <cstdlib>
 #include <iostream>
-#include <string>
+#include <cstring>
 
 int compareString(char* src, const char* target);
 void log(std::string message, std::string argu, int skip);
