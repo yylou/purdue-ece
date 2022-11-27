@@ -13,7 +13,9 @@ Version : v1.0
 #include <stdio.h>
 #include <cstring>
 #include <utility.hpp>
-#include <algo.hpp>
+//#include <algo.hpp>
+#include <algoMpi.hpp>
+#include <mpi.h>
 
 int main (int argc, char *argv[]) {
     
@@ -33,7 +35,7 @@ int main (int argc, char *argv[]) {
     if (compareString(type, serial.c_str())) {
         
         log("Running serial version", "src/serial.cpp\n", 1);
-        algo_Serial(maxThreads);
+        //algo_Serial(maxThreads);
         log("Done", "(Serial version)\n", 0);
 
 
@@ -48,8 +50,7 @@ int main (int argc, char *argv[]) {
         if (compareString(mode, opnemp.c_str())) { 
             
             log("Running parallel version: OPENMP", "src/openmp.cpp\n", 1);
-
-            algo_OpenMP(maxThreads);
+            //algo_OpenMP(maxThreads);
 
 
         /* ----------------------------------------------------------------------- *\
@@ -58,8 +59,20 @@ int main (int argc, char *argv[]) {
         } else if (compareString(mode, mpi.c_str())) { 
 
             log("Running parallel version: MPI", "src/mpi.cpp\n", 1);
-            algo_MPI();
+            int numP, rank;
+            MPI_Init(&argc, &argv);
+            MPI_Status status;
+            MPI_Comm_size(MPI_COMM_WORLD, &numP);
+            MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
+            MPI_Datatype Particletype;
+            const MPI_Datatype type[2] = {MPI_INT, MPI_BYTE};
+            const int len_block[2] = {1, 1};
+            const MPI_Aint offsets[2] = {0, 4};
+            MPI_Type_create_struct(2, len_block, offsets, type, &Particletype);//creat MPI datatype
+            MPI_Type_commit(&Particletype);
+
+            algo_MPI(maxThreads, numP, rank, status, Particletype);
         }
     }
 }

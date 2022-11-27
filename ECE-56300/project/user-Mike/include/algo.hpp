@@ -11,6 +11,7 @@ Version : v1.0 (algorithm header file)
 
 #include <queue>
 #include <vector>
+#include <mpi.h>
 
 typedef struct WorkItem {
     std::string word;
@@ -36,4 +37,4 @@ void printWordCount();
 
 void algo_Serial(int maxThreads);
 void algo_OpenMP(int maxThreads);
-void algo_MPI();
+void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status);

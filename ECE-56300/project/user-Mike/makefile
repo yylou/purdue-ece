@@ -12,6 +12,7 @@ BUILD_DIR   :=  ./bin
 INCLUDES    :=  -I ./include
 SER_TARGET  :=  serial.o
 OMP_TARGET  :=  openmp.o
+MPI_TARGET  :=  mpi.o
 ROOT_DIR    :=  ./
 SRC_DIR     :=  ./src
 SOURCES     :=  $(wildcard $(ROOT_DIR)/*.cpp $(SRC_DIR)/*.cpp)
@@ -33,6 +34,12 @@ parallel:
 	@rm $(OMP_TARGET)
 	@ln -s $(BUILD_DIR)/$(OMP_TARGET) .
 
+mpi:
+	$(MKDIR)
+	@echo "[ `date +'%Y-%m-%d %H:%M:%S'` ]      Compiling MPI version"
+	@mpiCC $(CXXFLAGS) $(INCLUDES) $(SOURCES) -o $(BUILD_DIR)/$(MPI_TARGET)
+	@rm $(MPI_TARGET)
+	@ln -s $(BUILD_DIR)/$(MPI_TARGET) .
 
 run_serial:
 	./$(SER_TARGET) 8 serial none
@@ -41,9 +48,9 @@ run_omp:
 	./$(OMP_TARGET) 6 parall omp
 
 run_mpi:
-	./$(SER_TARGET) 16 parall mpi
+	./$(MPI_TARGET) 3 parall mpi
 
-all: clean parallel 
+all: mpi clean
 
 clean:
 	@rm -r $(BUILD_DIR)

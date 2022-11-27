@@ -1,0 +1,2 @@
+rm -rf ../main/*
+rsync -av --exclude REL --exclude _ref --exclude _rel-1 . ../main

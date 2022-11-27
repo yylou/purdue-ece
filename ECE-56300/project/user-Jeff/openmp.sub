@@ -1,0 +1,8 @@
+#!/bin/bash
+# FILENAME:  openmp.sub
+#SBATCH --nodes=1
+#SBATCH --ntasks=18
+#SBATCH --time=00:01:00
+
+export OMP_NUM_THREADS=18
+./openmp.o 6 parall omp
