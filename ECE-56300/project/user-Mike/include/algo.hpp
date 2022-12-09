@@ -11,7 +11,7 @@ Version : v1.0 (algorithm header file)
 
 #include <queue>
 #include <vector>
-#include <mpi.h>
+//#include <mpi.h>
 
 typedef struct WorkItem {
     std::string word;
@@ -31,10 +31,10 @@ int getMapperQueueSize(int queueID);
 int getReducerQueueSize(int queueID);
 void wrapWorkItems(int queueId, std::string line);
 void putMapper(int queueId);
-void putReducer(int queueId, int size);
+void putReducer1(int queueId, int size);
 void getReducer(int queueId, int size);
 void printWordCount();
 
-void algo_Serial(int maxThreads);
+//void algo_Serial(int maxThreads);
 void algo_OpenMP(int maxThreads);
-void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status);
+//void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status);

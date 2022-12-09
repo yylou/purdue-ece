@@ -66,15 +66,25 @@ void algo_OpenMP(int maxThreads) {
     //     }
     // }
 
-    #pragma omp parallel for
-        for (tid=0 ; tid<threads ; tid++) {
-            /*  [STEP 2]
-                (for each thread)
-                1. COMBINE records by SIZE=20
-                2. PUSH to reducer queue by hash function
-            */
-            putReducer(tid, 20);    // aka. getMapper(...)
-        }
+    // #pragma omp parallel for
+    //     for (tid=0 ; tid<threads ; tid++) {
+    //         /*  [STEP 2]
+    //             (for each thread)
+    //             1. COMBINE records by SIZE=20
+    //             2. PUSH to reducer queue by hash function
+    //         */
+    //         putReducer1(tid, 20);    // aka. getMapper(...)
+    //     }
+
+    for (tid=0 ; tid<threads ; tid++) {
+        /*  [STEP 2]
+            (for each thread)
+            1. COMBINE records by SIZE=20
+            2. PUSH to reducer queue by hash function
+        */
+        putReducer1(tid, 20);    // aka. getMapper(...)
+    }
+
 
 
     #ifdef LOG

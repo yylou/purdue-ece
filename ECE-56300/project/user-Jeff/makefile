@@ -50,7 +50,7 @@ run_omp:
 run_mpi:
 	./$(MPI_TARGET) 3 parall mpi
 
-all: mpi clean
+all: mpi 
 
 clean:
 	@rm -r $(BUILD_DIR)

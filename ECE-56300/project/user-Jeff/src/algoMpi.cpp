@@ -18,17 +18,18 @@ Version : v1.0 (Data Structures and Algorithms)
 #include <utility.hpp>
 #include <algoMpi.hpp>
 
+//#include <queue>
+//#include <vector>
 // #define LOG
 #define numFiles 15
 
 std::map<int,std::vector<std::string>> filesMap;        // for reader threads to parse specified files
-QueueContainer contentQueueContainer;                   // [MAPPER  QUEUE] for reader threads to put work items
+QueueContainer contentQueueContainer;                   // [MAPPER  QUEUE] for reader threads to put work itemsextern 
 QueueContainer dataQueueContainer;                      // [REDUCER QUEUE] for mapper threads to put combined record
 int threads = 0;                                        // for mapper to put work items to reducer queues by hashing
 std::map<int,int> readersClockOut;                      // for mapper to stop pushing work items to reducer queues
 int mappersClockOut;                                    // for reducer to stop getting work items from reducer queues
 std::map<std::string,int> hashTable;                    // [FINAL ANSWER]
-
 
 MPI_Datatype makeType(int rows, MPI_Datatype Particletype){
    // define the data type here
@@ -37,7 +38,16 @@ MPI_Datatype makeType(int rows, MPI_Datatype Particletype){
     MPI_Type_commit(&b);
     MPI_Type_create_resized(b, 0, 1*sizeof(Particletype), &block);
     MPI_Type_commit(&block);
-   return block;
+    return block;
+    //return b;
+}
+
+void init2(int maxThreads){
+    threads = maxThreads;
+    for (int i=0 ; i<threads ; i++) {
+        contentQueueContainer.emplace_back(std::queue<WorkItem>());
+        dataQueueContainer.emplace_back(std::queue<WorkItem>());
+    }
 }
 
 
@@ -52,7 +62,7 @@ void init(int maxThreads) {
     for (int tid=0 ; tid<threads ; ++tid) {
         contentQueueContainer.emplace_back(std::queue<WorkItem>());
         dataQueueContainer.emplace_back(std::queue<WorkItem>());
-
+	
         /*  (2) Files Map: each thread is assigned with 0+ files  */
         int fid;
         for (fid=prev ; fid<(prev + filesPerThread + (tid < remain)) ; ++fid) {
@@ -82,6 +92,8 @@ void wrapWorkItems(int queueId, std::string line) {
 }
 
 void putMapper(int queueId, MPI_Datatype &Particletype) {
+    
+    int global_content_size;
     for (const auto& fileName : filesMap[queueId]) {
         std::ifstream inputFile(fileName);
 
@@ -99,23 +111,52 @@ void putMapper(int queueId, MPI_Datatype &Particletype) {
             log("FILE NOT FOUND", fileName+"\n", 0);
         }
 
-        /*  LOCK ACQUIRE  */
         ++readersClockOut[queueId];                  // reader clocks in when finishing
         /*  LOCK RELEASE  */
     }
-    MPI_Send(&contentQueueContainer[queueId], getMapperQueueSize(queueId), makeType(getMapperQueueSize(queueId), Particletype), queueId+3, 0, MPI_COMM_WORLD);
+
+     //MPI_Barrier(MPI_COMM_WORLD);
+     global_content_size = getMapperQueueSize(queueId);
+     //printf("global_content_size in putMapper = %d\n", global_content_size);
+     MPI_Send(&contentQueueContainer[queueId], 1, makeType(global_content_size, Particletype), queueId+3, 0, MPI_COMM_WORLD);
+     printf("global_content_size in putMapper = %d\n", global_content_size);
+     //MPI_Send(&contentQueueContainer[queueId], global_content_size, Particletype, queueId+3, 0, MPI_COMM_WORLD);
+     //MPI_Send(&global_content_size, 1, MPI_INT, queueId+3, 0, MPI_COMM_WORLD);
 }
 
-void putReducer(int queueId, int size, MPI_Status& status, MPI_Datatype &Particletype) {
+void putReducer(int queueId, int size, MPI_Status &status, MPI_Datatype &Particletype) {
 
     int batch = size;
+    int global_content_size;
+    int global_data_size;
+
     std::hash<std::string> hash;
     std::vector<WorkItem> workItems;
     std::map<std::string,int> counter;
+    QueueContainer contentQueueContainer;   // buffer                  
+    
 
-    MPI_Recv(&contentQueueContainer[queueId], getMapperQueueSize(queueId), makeType(getMapperQueueSize(queueId), Particletype), queueId-3, 0, MPI_COMM_WORLD, &status);
+    MPI_Probe(queueId, 0, MPI_COMM_WORLD, &status);
+    MPI_Get_count(&status, Particletype, &global_content_size); 
+    printf("global_content_size in putReducer = %d\n", global_content_size);
+    
+    std::queue <WorkItem> *received_queue = NULL;
+    received_queue = (std::queue <WorkItem > *) malloc (global_content_size * sizeof (std::queue <WorkItem>));
+    for(int i=0; i<3; i++){
+    	if(i == queueId){
+		    contentQueueContainer.emplace_back(*received_queue);
+	    }
+	    else{
+		    contentQueueContainer.emplace_back(std::queue <WorkItem>());
+	    }
+    }
 
-    if (getMapperQueueSize(queueId) == 0) return;   // REMOVE for parallel version
+
+    //MPI_Recv(&contentQueueContainer[queueId], 1, makeType(getMapperQueueSize(queueId), Particletype), queueId, 0, MPI_COMM_WORLD, &status);
+    //MPI_Barrier(MPI_COMM_WORLD);
+    //MPI_Recv(&contentQueueContainer[queueId], global_content_size, Particletype, queueId, 0, MPI_COMM_WORLD, &status);
+    MPI_Recv(&contentQueueContainer[queueId], 1, makeType(global_content_size, Particletype), queueId, 0, MPI_COMM_WORLD, &status);
+    //if (getMapperQueueSize(queueId) == 0) return;   // REMOVE for parallel version
 
     while (readersClockOut[queueId] < filesMap[queueId].size() ||
            getMapperQueueSize(queueId) > 0) {       // TRUE @ reader is reading OR queue is not empty
@@ -177,14 +218,45 @@ void putReducer(int queueId, int size, MPI_Status& status, MPI_Datatype &Particl
     }
 
     mappersClockOut++;   // mapper clocks in when finishing
-    MPI_Send(&dataQueueContainer[queueId], getReducerQueueSize(queueId), makeType(getReducerQueueSize(queueId), Particletype), queueId+3, 0, MPI_COMM_WORLD);
+    global_data_size = getReducerQueueSize(queueId);
+    printf("global_data_size in putReducer = %d\n", global_data_size); 
+    //MPI_Send(&dataQueueContainer[queueId], 1, makeType(getReducerQueueSize(queueId), Particletype), queueId+6, 0, MPI_COMM_WORLD);
+    //MPI_Send(&global_data_size, 1, MPI_INT, queueId+6, 0, MPI_COMM_WORLD);
+    MPI_Send(&dataQueueContainer[queueId], 1, makeType(global_data_size, Particletype), queueId+6, 0, MPI_COMM_WORLD);
+    //MPI_Send(&dataQueueContainer[queueId], global_data_size,  Particletype, queueId+6, 0, MPI_COMM_WORLD);
 }
 
-void getReducer(int queueId, int size, MPI_Status& status, MPI_Datatype &Particletype) {
-    MPI_Recv(&dataQueueContainer[queueId], getReducerQueueSize(queueId), makeType(getReducerQueueSize(queueId), Particletype), queueId-3, 0, MPI_COMM_WORLD, &status);
+void getReducer(int queueId, int size, MPI_Status &status, MPI_Datatype &Particletype) {
+    int global_data_size;
+
+    //MPI_Recv(&global_data_size, 1, MPI_INT, queueId+3, 0, MPI_COMM_WORLD, &status);
+    //MPI_Recv(&dataQueueContainer[queueId], 1, makeType(getReducerQueueSize(queueId), Particletype), queueId+3, 0, MPI_COMM_WORLD, &status);
+    //MPI_Recv(&dataQueueContainer[queueId], global_data_size[queueId%3],  Particletype, queueId-3, 0, MPI_COMM_WORLD, &status);
     int batch = size;
     std::vector<WorkItem> workItems;
-    if (getReducerQueueSize(queueId) == 0) return;  // REMOVE for parallel version
+
+
+    //if (getReducerQueueSize(queueId) == 0) return;  // REMOVE for parallel version
+    
+
+    MPI_Probe(queueId+6, 0, MPI_COMM_WORLD, &status);
+    MPI_Get_count(&status, Particletype, &global_data_size);
+    QueueContainer dataQueueContainer;   
+    std::queue <WorkItem> *received_queue = NULL;
+    received_queue = (std::queue <WorkItem > *) malloc (global_data_size * sizeof (std::queue <WorkItem>));
+    for(int i=0; i<3; i++){
+    	if(i == queueId){
+		    dataQueueContainer.emplace_back(*received_queue);
+	    }
+	    else{
+		    dataQueueContainer.emplace_back(std::queue <WorkItem>());
+	    }
+    }
+    printf("global_data_size in getReducer = %d\n", global_data_size);
+    MPI_Recv(&dataQueueContainer[queueId], 1, makeType(global_data_size, Particletype), queueId+3, 0, MPI_COMM_WORLD, &status);
+    //MPI_Recv(&dataQueueContainer[queueId], 1, makeType(getReducerQueueSize(queueId), Particletype), queueId+3, 0, MPI_COMM_WORLD, &status);
+    //MPI_Recv(&dataQueueContainer[queueId], global_data_size,  Particletype, queueId+3, 0, MPI_COMM_WORLD, &status);
+
 
     while (mappersClockOut < threads ||
            getReducerQueueSize(queueId) > 0) {      // TRUE @ mapper is combining OR queue is not empty

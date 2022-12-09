@@ -106,7 +106,7 @@ void putMapper(int queueId) {
     }
 }
 
-void putReducer(int queueId, int size) {
+void putReducer1(int queueId, int size) {
  
     int batch = size;
     std::hash<std::string> hash;
@@ -137,7 +137,6 @@ void putReducer(int queueId, int size) {
         #ifdef LOG
         log("Combine", "\n", 0);
         #endif
-
         /*  (2) COMBINE records (work items)  */
 
         for (const auto& iter : workItems) {
@@ -183,12 +182,27 @@ void putReducer(int queueId, int size) {
         #ifdef LOG
         printf("%50s  |  %10d  |\n", "(total)", tmpCounter);
         #endif
-
+        omp_lock_t lck3;
+        omp_init_lock (&lck3); 
+        omp_set_lock(&lck3);
         workItems.clear();
-        counter.clear();
-    }
+        omp_unset_lock(&lck3);
+        omp_destroy_lock(&lck3);
 
+        omp_lock_t lck4;
+        omp_init_lock (&lck4); 
+        omp_set_lock(&lck4);
+        counter.clear();
+        omp_unset_lock(&lck4);
+        omp_destroy_lock(&lck4);
+    }
+    /*  LOCK ACQUIRE  */
+    omp_lock_t lck5;
+    omp_init_lock (&lck5); 
+    omp_set_lock(&lck5);
     mappersClockOut++;   // mapper clocks in when finishing
+    omp_unset_lock(&lck5);
+    omp_destroy_lock(&lck5);
 }
 
 void getReducer(int queueId, int size) {

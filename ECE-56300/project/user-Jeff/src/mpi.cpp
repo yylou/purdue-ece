@@ -16,6 +16,8 @@ Version : v1.0 (Serial version)
 
 #define LOG
 
+
+//int &numP, int &rank, MPI_Status &status, MPI_Datatype &Particletype
 void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Datatype &Particletype) {
     const int threads = maxThreads;
 
@@ -26,9 +28,9 @@ void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Data
         1. INIT queues and thread-locks
         2. ASSIGN files to each thread or process
     */
-    
+     
     init(threads);
-
+    
 
     #ifdef LOG
     log("[  Parse  ]    |    Put", "reader -> mapper\n", 0);
@@ -43,6 +45,7 @@ void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Data
     */
 
     if((numP/3 > rank) && (rank >= 0)){
+	//init(threads);
         putMapper(rank, Particletype);
     }
     MPI_Barrier(MPI_COMM_WORLD);
@@ -63,7 +66,9 @@ void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Data
         */
         // aka. getMapper(...)
     if((2 * numP / 3 > rank) && (rank >= numP / 3)){
-        putReducer(rank, 20, status, Particletype);
+        //init2(threads); 
+        printf("rank %d entering putreducer\n", rank);
+        putReducer(rank%3, 20, status, Particletype);
     }
     MPI_Barrier(MPI_COMM_WORLD);
 
@@ -79,7 +84,8 @@ void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Data
             2. COUNT words
         */
     if((numP > rank) && (rank >= 2 * numP / 3)){
-        getReducer(rank, 20, status, Particletype);
+        //init2(threads);
+        getReducer(rank%3, 20, status, Particletype);
     }
 
     printWordCount();
