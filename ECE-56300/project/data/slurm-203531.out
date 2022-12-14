@@ -1,0 +1,20 @@
+reader time(second): 164.777303
+reader time(second): 166.112947
+reader time(second): 169.938320
+reader time(second): 170.711351
+reader time(second): 172.532875
+reader time(second): 172.841213
+reader time(second): 175.098359
+reader time(second): 177.132619
+reader time(second): 177.474305
+reader time(second): 187.214702
+reader time(second): 187.643078
+reader time(second): 187.984973
+reader time(second): 192.598317
+reader time(second): 193.992757
+reader time(second): 195.827703
+reader time(second): 198.420100
+[8] MPI startup(): ofa fabric is not available and fallback fabric is not enabled
+[0] MPI startup(): ofa fabric is not available and fallback fabric is not enabled
+[2] MPI startup(): ofa fabric is not available and fallback fabric is not enabled
+[12] MPI startup(): ofa fabric is not available and fallback fabric is not enabled

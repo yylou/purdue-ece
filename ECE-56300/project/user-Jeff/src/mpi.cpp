@@ -48,7 +48,7 @@ void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Data
 	//init(threads);
         putMapper(rank, Particletype);
     }
-    MPI_Barrier(MPI_COMM_WORLD);
+    //MPI_Barrier(MPI_COMM_WORLD);
 
     // if(rank == 0){
     //     MPI_Bcast(&contentQueueContainer, contentQueueContainer.size(), MPI_BYTE, 0, MPI_COMM_WORLD);
@@ -70,7 +70,7 @@ void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status, MPI_Data
         printf("rank %d entering putreducer\n", rank);
         putReducer(rank%3, 20, status, Particletype);
     }
-    MPI_Barrier(MPI_COMM_WORLD);
+    //MPI_Barrier(MPI_COMM_WORLD);
 
 
 
