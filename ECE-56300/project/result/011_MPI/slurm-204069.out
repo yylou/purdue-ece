@@ -1,0 +1,87 @@
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+
+[ 2022-12-14 18:34:48 ]      Running parallel version: MPI: src/mpi.cpp
+[ 2022-12-14 18:34:48 ]      [   Init   ]    |    Queue & Lock  (#threads: 8)
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/3.txt
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/9.txt
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/1.txt
+[ 2022-12-14 18:34:48 ]      Parse: ./data/2.txt
+[ 2022-12-14 18:34:48 ]      [ Combine ]    |    Put: mapper -> reducer
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/15.txt
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/7.txt
+[ 2022-12-14 18:34:48 ]      Parse: ./data/8.txt
+[ 2022-12-14 18:34:48 ]      [ Combine ]    |    Put: mapper -> reducer
+[ 2022-12-14 18:34:48 ]      [  Count  ]    |    Get: reducer
+                                   (total @ Final)  |       32395
+[ 2022-12-14 18:34:48 ]      Init (Serial)      : 0.014785
+[ 2022-12-14 18:34:48 ]      MapReduce (Serial) : 0.018774
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/11.txt
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/5.txt
+[ 2022-12-14 18:34:48 ]      [  Count  ]    |    Get: reducer
+[ 2022-12-14 18:34:48 ]      [  Parse  ]    |    Put: reader -> mapper
+[ 2022-12-14 18:34:48 ]      Parse: ./data/13.txt
+[ 2022-12-14 18:34:48 ]      Parse: ./data/14.txt
+[ 2022-12-14 18:34:48 ]      [ Combine ]    |    Put: mapper -> reducer
+[ 2022-12-14 18:34:48 ]      [ Combine ]    |    Put: mapper -> reducer
+                                   (total @ Final)  |       69306
+[ 2022-12-14 18:34:48 ]      Init (Serial)      : 0.029141
+[ 2022-12-14 18:34:48 ]      MapReduce (Serial) : 0.040979
+[ 2022-12-14 18:34:48 ]      [  Count  ]    |    Get: reducer
+[ 2022-12-14 18:34:48 ]      [  Count  ]    |    Get: reducer
+[ 2022-12-14 18:34:48 ]      Parse: ./data/12.txt
+[ 2022-12-14 18:34:48 ]      Parse: ./data/4.txt
+                                   (total @ Final)  |      127365
+[ 2022-12-14 18:34:48 ]      Init (Serial)      : 0.053218
+[ 2022-12-14 18:34:48 ]      MapReduce (Serial) : 0.084156
+                                   (total @ Final)  |      113618
+[ 2022-12-14 18:34:48 ]      Init (Serial)      : 0.050167
+[ 2022-12-14 18:34:48 ]      MapReduce (Serial) : 0.080579
+[ 2022-12-14 18:34:48 ]      Parse: ./data/10.txt
+[ 2022-12-14 18:34:48 ]      [ Combine ]    |    Put: mapper -> reducer
+[ 2022-12-14 18:34:48 ]      [ Combine ]    |    Put: mapper -> reducer
+[ 2022-12-14 18:34:48 ]      [  Count  ]    |    Get: reducer
+[ 2022-12-14 18:34:49 ]      [ Combine ]    |    Put: mapper -> reducer
+[ 2022-12-14 18:34:49 ]      [  Count  ]    |    Get: reducer
+                                   (total @ Final)  |      183351
+[ 2022-12-14 18:34:49 ]      Init (Serial)      : 0.142509
+[ 2022-12-14 18:34:49 ]      MapReduce (Serial) : 0.121308
+[ 2022-12-14 18:34:49 ]      Parse: ./data/6.txt
+[ 2022-12-14 18:34:49 ]      [  Count  ]    |    Get: reducer
+[ 2022-12-14 18:34:49 ]      [ Combine ]    |    Put: mapper -> reducer
+                                   (total @ Final)  |      401870
+[ 2022-12-14 18:34:49 ]      Init (Serial)      : 0.159792
+[ 2022-12-14 18:34:49 ]      MapReduce (Serial) : 0.286675
+[ 2022-12-14 18:34:49 ]      [  Count  ]    |    Get: reducer
+                                   (total @ Final)  |      559227
+[ 2022-12-14 18:34:49 ]      Init (Serial)      : 0.215352
+[ 2022-12-14 18:34:49 ]      MapReduce (Serial) : 0.410259
+                                   (total @ Final)  |      810008
+[ 2022-12-14 18:34:49 ]      Init (Serial)      : 0.392110
+[ 2022-12-14 18:34:49 ]      MapReduce (Serial) : 0.645835
