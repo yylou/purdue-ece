@@ -68,20 +68,3 @@ project
 
 ## Algorithms
 ![Algorithms](./fig/Algorithms.png "Algorithms")
-
-## Evaluation
-``` text
-[TIMING]
-1. 
-2. 
-3. 
-
-[SPEEDUP (#FILES=15)]
-1. Serial
-2. OpenMP: 1, 2, 4, 8 (threads)
-3. MPI: 1, 2, 4, 8 (nodes) with 3 threads (each core)
-4. Hybrid: (OpenMP + MPI)
-
-[PERFORMANCE]
-1. Karp-Flatt Analysis
-```
