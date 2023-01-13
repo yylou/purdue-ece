@@ -1,8 +1,8 @@
 ## System
-![Architecture](./../fig/Architecture.png "Architecture")
+![Architecture](./../../fig/Architecture.png "Architecture")
 
 ## Directory Structure
-![Folder](./../fig/Folder.png "Folder")
+![Folder](./../../fig/Folder.png "Folder")
 ``` python
 user-Mike
 │
@@ -31,10 +31,8 @@ user-Mike
 ├── mpi.o    -> ./bin/mpi.o
 │
 ├── README.md
-├── REL                             # rsync to "main" folder
-├── result.log                      # wordCount results
 └── files.zip                       # input files
 ```
 
 ## Algorithms
-![Algorithms](./../fig/Algorithms.png "Algorithms")
+![Algorithms](./../../fig/Algorithms.png "Algorithms")
