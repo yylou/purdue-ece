@@ -36,12 +36,10 @@ project
 │   ├── (...)       # ──┤ Input files
 │   └── 16.txt      # ──┘
 │
-├── main            # Codebase <----------------------------\   (only updated to SERIAL ver) 
+├── serial          # Codebase Structure -------------------\
 │   ├── data -> ../data                                 #   |
 │   ├── bin                                             #   |   (binary executable files)
-│   │   ├── serial.o                                    #   |
-│   │   ├── openmp.o                                    #   |
-│   │   └── mpi.o                                       #   |
+│   │   └── serial.o                                    #   |
 │   │                                                   #   |
 │   ├── src                                             #   |   (algorithms part)
 │   │   ├── algo.cpp                                    #   |   CORE cpp files
@@ -58,15 +56,12 @@ project
 │   ├── main.cpp                                        #   |
 │   │                                                   #   |
 │   ├── serial.o -> ./bin/serial.o                      #   |
-│   ├── openmp.o -> ./bin/openmp.o                      #   |
-│   ├── mpi.o    -> ./bin/mpi.o                         #   |
 │   │                                                   #   |
 │   ├── README.md                                       #   |
-│   ├── REL                                             #   |   rsync with "main" folder
 │   ├── result.log                                      #   |   wordCount results
-│   └── files.zip                                       #   |   input files archived
-│                                                       #   |
-├── user-Mike       # Source code / Result -----------------/   (SYNC through rsync cmd)
+│   └── files.zip # ------------------------------------#   |   archived input files
+
+├── user-Mike       # OpenMP / MPI
 │
 └── README.md
 ```
