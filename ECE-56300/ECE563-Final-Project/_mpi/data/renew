@@ -1,2 +1,0 @@
-rm -f *.txt && unzip files.zip && mv files/* . && rm -r files
-mv 16.txt 10.txt
