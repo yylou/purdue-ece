@@ -11,10 +11,10 @@
 ┌── [O]  Nov 07: Initialization
 ├── [O]  Nov 11: Project setup / Serial version
 ├── [O]  Nov 12: Deliver
-├── [ ]  Nov 18: (dev)
-├── [ ]  Nov 25: (dev)
-├── [ ]  Dec 02: Review / Report
-└── [!]  Dec 09: Submission
+├── [O]  Nov 18: (dev)
+├── [O]  Nov 25: (dev)
+├── [O]  Dec 02: Review / Report
+└── [O]  Dec 09: Submission
 ```
 
 ## Directory Structure
@@ -36,7 +36,7 @@ project
 │   ├── (...)       # ──┤ Input files
 │   └── 16.txt      # ──┘
 │
-├── main            # Codebase <----------------------------\   
+├── main            # Codebase <----------------------------\   (only updated to SERIAL ver) 
 │   ├── data -> ../data                                 #   |
 │   ├── bin                                             #   |   (binary executable files)
 │   │   ├── serial.o                                    #   |
@@ -66,12 +66,7 @@ project
 │   ├── result.log                                      #   |   wordCount results
 │   └── files.zip                                       #   |   input files archived
 │                                                       #   |
-│                                                       #   |
-│                                                       #   |
-│                                                       #   | 
-├── user-Arnold     # OpenMP or MPI                         |
-├── user-Jeff       # OpenMP or MPI                         |
-├── user-Mike       # Skeleton code / Report ---------------/   (SYNC through rsync cmd)
+├── user-Mike       # Source code / Result -----------------/   (SYNC through rsync cmd)
 │
 └── README.md
 ```
