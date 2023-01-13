@@ -27,6 +27,7 @@ typedef std::queue<WorkItem> Queue;
 typedef std::vector<Queue> QueueContainer;
 
 void init(int maxThreads);
+int getFilesMapSize (int queueId);
 int getMapperQueueSize(int queueID);
 int getReducerQueueSize(int queueID);
 void wrapWorkItems(int queueId, std::string line);
@@ -35,6 +36,12 @@ void putReducer1(int queueId, int size);
 void getReducer(int queueId, int size);
 void printWordCount();
 
+<<<<<<< HEAD
 //void algo_Serial(int maxThreads);
 void algo_OpenMP(int maxThreads);
 //void algo_MPI(int maxThreads, int &numP, int &rank, MPI_Status &status);
+=======
+void algo_Serial(int maxThreads, int size);
+void algo_OpenMP(int maxThreads, int size);
+void algo_MPI(int numProc, int pid, int size);
+>>>>>>> 9b61a44 (ECE-563 (Jan 13, 2023))
