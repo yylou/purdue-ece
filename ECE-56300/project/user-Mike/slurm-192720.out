@@ -1,1 +1,0 @@
-/var/spool/slurm/job192720/slurm_script: line 8: 205417 Segmentation fault      ./openmp.o 6 parall omp

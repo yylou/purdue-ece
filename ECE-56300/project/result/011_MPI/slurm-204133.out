@@ -1,9 +1,0 @@
-[12] MPI startup(): ofa fabric is not available and fallback fabric is not enabled
-[11] MPI startup(): ofa fabric is not available and fallback fabric is not enabled
-[10] MPI startup(): ofa fabric is not available and fallback fabric is not enabled
-srun: error: scholar-b002: task 12: Exited with exit code 254
-srun: error: scholar-b001: task 11: Exited with exit code 254
-srun: error: scholar-b000: task 10: Exited with exit code 254
-slurmstepd: error: *** STEP 204133.0 ON scholar-a009 CANCELLED AT 2022-12-14T21:24:10 DUE TO TIME LIMIT ***
-slurmstepd: error: *** JOB 204133 ON scholar-a009 CANCELLED AT 2022-12-14T21:24:10 DUE TO TIME LIMIT ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

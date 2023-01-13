@@ -1,8 +1,0 @@
-#!/bin/bash
-# FILENAME: mpi.sub
-#SBATCH  --nodes=1
-#SBATCH  --ntasks-per-node=9
-#SBATCH  --time=00:01:00
-#SBATCH  -A scholar
-
-srun --mpi=pmi2 -n 9 ./mpi.o 3 parall mpi

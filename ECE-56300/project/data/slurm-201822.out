@@ -1,6 +1,0 @@
-[mpiexec@scholar-a008.rcac.purdue.edu] fn_kvs_get (../../pm/pmiserv/pmiserv_pmi_v2.c:400): assert (idx != -1) failed
-[mpiexec@scholar-a008.rcac.purdue.edu] handle_pmi_cmd (../../pm/pmiserv/pmiserv_cb.c:69): PMI handler returned error
-[mpiexec@scholar-a008.rcac.purdue.edu] control_cb (../../pm/pmiserv/pmiserv_cb.c:957): unable to process PMI command
-[mpiexec@scholar-a008.rcac.purdue.edu] HYDT_dmxu_poll_wait_for_event (../../tools/demux/demux_poll.c:76): callback returned error status
-[mpiexec@scholar-a008.rcac.purdue.edu] HYD_pmci_wait_for_completion (../../pm/pmiserv/pmiserv_pmci.c:501): error waiting for event
-[mpiexec@scholar-a008.rcac.purdue.edu] main (../../ui/mpich/mpiexec.c:1147): process manager error waiting for completion
