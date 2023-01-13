@@ -60,7 +60,7 @@ project
 │   ├── README.md                                       #   |
 │   ├── result.log                                      #   |   wordCount results
 │   └── files.zip # ------------------------------------#   |   archived input files
-
+│
 ├── user-Mike       # OpenMP / MPI
 │
 └── README.md
