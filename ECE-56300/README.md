@@ -1,4 +1,4 @@
-# Programming Parallel Machines
+# ECE 56300 - Programming Parallel Machines
 * [Homework 1 - Submission Practice](#)
 * [Homework 2 - OpenMP: Basic](#)
 * [Homework 3 - OpenMP: Advanced](#)
