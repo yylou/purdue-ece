@@ -1,12 +1,12 @@
 # Programming Parallel Machines
-* [Homework 1](#)
-* [Homework 2](#)
-* [Homework 3](#)
-* [Homework 4](#)
-* [Homework 5](#)
-* [Homework 6](#)
-* [Homework 7](#)
-* [Homework 8](#)
+* [Homework 1 - Submission Practice](#)
+* [Homework 2 - OpenMP: Basic](#)
+* [Homework 3 - OpenMP: Advanced](#)
+* [Homework 4 - OpenMP: Schedule](#)
+* [Homework 5 - OpenMP: Tree Traversal](#)
+* [Homework 6 - Matrix Multiply](#)
+* [Homework 7 - Isoefficiency Analysis](#)
+* [Homework 8 - MPI: Matrix Multiply](#)
 * [Final Project - MapReduce](./project)
 <br />
 
