@@ -24,12 +24,14 @@
   * **```60%```** [**Project**](https://docs.google.com/spreadsheets/d/106mGXUgaOzmoV044iW7WO3dy7T7VuiBGWyQejD0Zhl8/edit#gid=0)
     > * [**Proposal**](https://docs.google.com/spreadsheets/d/13IzV9mz9zrxV30mV95UXKtiNcUnJssBR-czkruXEIBA/edit#gid=0) (5 minuts presentation + 3-pages double-column report)
     > ```
-    > 1. Template: https://www.ieee.org/conferences/publishing/templates.html
+    > Title: Understanding the Performance-fairness Trade-offs for Pre-training Federated Learning
+    > Template: https://www.ieee.org/conferences/publishing/templates.html
+    > 
+    > 1. What research topic your team would like to work on or survey?
     > 2. What research topic your team would like to work on or survey?
-    > 3. What research topic your team would like to work on or survey?
-    > 4. What is the state-of-state-art research on this topic? Is there any limitation/weakness of them?
-    > 5. You report needs to present briefly your plan and timeline on how to accomplish the project.
-    > 6. You need to cite the related work of your project mentioned in the report.
+    > 3. What is the state-of-state-art research on this topic? Is there any limitation/weakness of them?
+    > 4. You report needs to present briefly your plan and timeline on how to accomplish the project.
+    > 5. You need to cite the related work of your project mentioned in the report.
     > ```
     > * [**Final Report**]() (7-pages for 3-people)
     > ```
