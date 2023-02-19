@@ -22,12 +22,14 @@
     > https://doi.org/10.1145/3495243.3560551
     > ```
   * **```60%```** [**Project**](https://docs.google.com/spreadsheets/d/106mGXUgaOzmoV044iW7WO3dy7T7VuiBGWyQejD0Zhl8/edit#gid=0)
-    > * [**Proposal**](https://docs.google.com/spreadsheets/d/13IzV9mz9zrxV30mV95UXKtiNcUnJssBR-czkruXEIBA/edit#gid=0) (5 minuts presentation + 3-pages double-column report)
     > ```
     > Title:    Understanding the Performance-fairness Trade-offs for Pre-training Federated Learning
     > Member:   Yun-Wei Chu, Yuan-Yao Lou, Chih-Hsing Ho
     > Template: https://www.ieee.org/conferences/publishing/templates.html
-    > 
+    > ```
+
+    > * [**Proposal**](https://docs.google.com/spreadsheets/d/13IzV9mz9zrxV30mV95UXKtiNcUnJssBR-czkruXEIBA/edit#gid=0) (5 minuts presentation + 3-pages double-column report)
+    > ```
     > 1. What research TOPIC your team would like to work on or survey?
     > 2. What is the MOTIVATION of this research? Any APPLICATIONS?
     > 3. What is the STATE-OF-ART research on this topic? Is there any limitation/weakness of them?
