@@ -28,11 +28,11 @@
     > Member:   Yun-Wei Chu, Yuan-Yao Lou, Chih-Hsing Ho
     > Template: https://www.ieee.org/conferences/publishing/templates.html
     > 
-    > 1. What research topic your team would like to work on or survey?
-    > 2. What is the motivation of this research? Any applications?
-    > 3. What is the state-of-state-art research on this topic? Is there any limitation/weakness of them?
-    > 4. You report needs to present briefly your plan and timeline on how to accomplish the project.
-    > 5. You need to cite the related work of your project mentioned in the report.
+    > 1. What research TOPIC your team would like to work on or survey?
+    > 2. What is the MOTIVATION of this research? Any APPLICATIONS?
+    > 3. What is the STATE-OF-ART research on this topic? Is there any limitation/weakness of them?
+    > 4. You report needs to present briefly your PLAN and TIMELINE on how to accomplish the project.
+    > 5. You need to cite the RELATED WORK of your project mentioned in the report.
     > ```
     > * [**Final Report**]() (7-pages for 3-people)
     > ```
