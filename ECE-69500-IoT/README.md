@@ -24,7 +24,8 @@
   * **```60%```** [**Project**](https://docs.google.com/spreadsheets/d/106mGXUgaOzmoV044iW7WO3dy7T7VuiBGWyQejD0Zhl8/edit#gid=0)
     > * [**Proposal**](https://docs.google.com/spreadsheets/d/13IzV9mz9zrxV30mV95UXKtiNcUnJssBR-czkruXEIBA/edit#gid=0) (5 minuts presentation + 3-pages double-column report)
     > ```
-    > Title: Understanding the Performance-fairness Trade-offs for Pre-training Federated Learning
+    > Title:    Understanding the Performance-fairness Trade-offs for Pre-training Federated Learning
+    > Member:   Yun-Wei Chu, Yuan-Yao Lou, Chih-Hsing Ho
     > Template: https://www.ieee.org/conferences/publishing/templates.html
     > 
     > 1. What research topic your team would like to work on or survey?
