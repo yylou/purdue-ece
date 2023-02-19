@@ -29,7 +29,7 @@
     > Template: https://www.ieee.org/conferences/publishing/templates.html
     > 
     > 1. What research topic your team would like to work on or survey?
-    > 2. What research topic your team would like to work on or survey?
+    > 2. What is the motivation of this research? Any applications?
     > 3. What is the state-of-state-art research on this topic? Is there any limitation/weakness of them?
     > 4. You report needs to present briefly your plan and timeline on how to accomplish the project.
     > 5. You need to cite the related work of your project mentioned in the report.
