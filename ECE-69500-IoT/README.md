@@ -48,8 +48,8 @@
   
 * ### Deliverables
   * **Paper review**
-    > * **```0209```** [2022-UbiComp-EarCommand_review.pdf](./2022-UbiComp-EarCommand_review.pdf)
-    > * **```0427```** [2022-UbiComp-ColloSSL_review.pdf](./2022-UbiComp-ColloSSL_review.pdf)
+    > * **```0209```** [2022-UbiComp-EarCommand_review.pdf](./2022__UbiComp-EarCommand__review.pdf)
+    > * **```0427```** [2022-UbiComp-ColloSSL_review.pdf](./2022__UbiComp-ColloSSL__review.pdf)
   * **Peer evaluation**
     > * [Documents]()
   * **Paper presentation**
