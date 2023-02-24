@@ -38,7 +38,7 @@ project
 │
 ├── serial          # Codebase Structure -------------------\
 │   ├── data -> ../data                                 #   |
-│   ├── bin                                             #   |   (binary executable files)
+│   ├── bin                                             #   |   (binary files)
 │   │   └── serial.o                                    #   |
 │   │                                                   #   |
 │   ├── src                                             #   |   (algorithms part)
