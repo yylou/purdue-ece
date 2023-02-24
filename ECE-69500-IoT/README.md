@@ -48,12 +48,12 @@
   
 * ### Deliverables
   * **Paper review**
-    > * **```0209```** [2022-UbiComp-EarCommand_review.pdf](./2022__UbiComp-EarCommand__review.pdf)
-    > * **```0427```** [2022-UbiComp-ColloSSL_review.pdf](./2022__UbiComp-ColloSSL__review.pdf)
+    > * **```0209```** [2022__UbiComp-EarCommand__review.pdf](./2022__UbiComp-EarCommand__review.pdf)
+    > * **```0427```** [2022__UbiComp-ColloSSL__review.pdf](./2022__UbiComp-ColloSSL__review.pdf)
   * **Peer evaluation**
     > * Forms ```x20```
   * **Paper presentation**
-    > * **```0309```** [2022-MobiCom-NN-on-Device_present.pdf](#)
+    > * **```0309```** [2022__MobiCom-NN-on-Device__present.pdf](#)
   * **Project**
     > * **```0228```** Proposal slides
     > * **```0305```** Proposal report
