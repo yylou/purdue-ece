@@ -36,7 +36,7 @@
     > 4. You report needs to present briefly your PLAN and TIMELINE on how to accomplish the project.
     > 5. You need to cite the RELATED WORK of your project mentioned in the report.
     > ```
-    > * [**Final Report**]() (7-pages for 3-people)
+    > * [**Final Report**](#) (7-pages for 3-people)
     > ```
     > 1. 
     > 2. 
