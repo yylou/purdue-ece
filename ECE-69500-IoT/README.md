@@ -42,7 +42,7 @@
     > 2. 
     > 3. 
     > ```
-  * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8) (x20)
+  * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8)
   
 <br />
   
@@ -51,7 +51,7 @@
     > * **```0209```** [2022-UbiComp-EarCommand_review.pdf](./2022__UbiComp-EarCommand__review.pdf)
     > * **```0427```** [2022-UbiComp-ColloSSL_review.pdf](./2022__UbiComp-ColloSSL__review.pdf)
   * **Peer evaluation**
-    > * Forms **```x 20```**
+    > * Forms **```x20```**
   * **Paper presentation**
     > * **```0309```** [2022-MobiCom-NN-on-Device_present.pdf](#)
   * **Project**
