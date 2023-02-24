@@ -11,5 +11,5 @@
 <br />
 
 
-### Final Project - Map Reduce
-![Architecture](./project/fig/Architecture.png "Architecture")
+> ### Final Project - Map Reduce
+> ![Architecture](./project/fig/Architecture.png "Architecture")
