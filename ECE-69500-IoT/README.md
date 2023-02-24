@@ -51,9 +51,9 @@
     > * **```0209```** [2022-UbiComp-EarCommand_review.pdf](./2022-UbiComp-EarCommand_review.pdf)
     > * **```0427```** [2022-UbiComp-ColloSSL_review.pdf](./2022-UbiComp-ColloSSL_review.pdf)
   * **Peer evaluation**
-    > * [Documents](https://docs.google.com/document/d/1MLv4mWAOdYq6g6PG0-Ri5VhrF6bQyeLlVCWDMlXh2w8/edit#heading=h.n0cbuabx5bw8)
+    > * [Documents]()
   * **Paper presentation**
-    > * **```0309```** [2022-MobiCom-NN-on-Device_present.pdf](https://docs.google.com/presentation/d/1I5dY-idtY4rvyUngbMdGu8alkt-nzWErT5nYhZwYeww/edit#slide=id.gf4968908a5_1_190)
+    > * **```0309```** [2022-MobiCom-NN-on-Device_present.pdf](#)
   * **Project**
     > * **```0228```** Proposal slides
     > * **```0305```** Proposal report
