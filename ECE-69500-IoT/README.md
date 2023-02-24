@@ -21,6 +21,7 @@
     > Association for Computing Machinery, New York, NY, USA, 200–213
     > https://doi.org/10.1145/3495243.3560551
     > ```
+  * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8)
   * **```60%```** [**Project**](https://docs.google.com/spreadsheets/d/106mGXUgaOzmoV044iW7WO3dy7T7VuiBGWyQejD0Zhl8/edit#gid=0)
     > ```
     > Title:    Understanding the Performance-fairness Trade-offs for Pre-training Federated Learning
@@ -36,13 +37,12 @@
     > 4. You report needs to present briefly your PLAN and TIMELINE on how to accomplish the project.
     > 5. You need to cite the RELATED WORK of your project mentioned in the report.
     > ```
-    > * [**Final Report**](#) (7-pages for 3-people)
+    > * **Final Report** (7-pages for 3-people)
     > ```
     > 1. 
     > 2. 
     > 3. 
     > ```
-  * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8)
   
 <br />
   
