@@ -41,18 +41,18 @@ project
 │   ├── bin                                             #   |   (binary files)
 │   │   └── serial.o                                    #   |
 │   │                                                   #   |
-│   ├── src                                             #   |   (algorithms part)
-│   │   ├── algo.cpp                                    #   |   CORE cpp files
+│   ├── src                                             #   |   (algorithm)
+│   │   ├── algo.cpp                                    #   |   CORE CPPs
 │   │   ├── serial.cpp                                  #   |
 │   │   ├── openmp.cpp                                  #   |
 │   │   ├── mpi.cpp                                     #   |
 │   │   └── utility.cpp                                 #   |
 │   │                                                   #   |
-│   ├── include                                         #   |   (header files)
+│   ├── include                                         #   |   (headers)
 │   │   ├── algo.hpp                                    #   |
 │   │   └── utility.hpp                                 #   |
 │   │                                                   #   |
-│   ├── makefile                                        #   |   compile, run
+│   ├── makefile                                        #   | 
 │   ├── main.cpp                                        #   |
 │   │                                                   #   |
 │   ├── serial.o -> ./bin/serial.o                      #   |
