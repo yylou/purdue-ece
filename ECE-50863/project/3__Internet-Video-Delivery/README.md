@@ -43,7 +43,6 @@ python tester.py <Student algorithm to run (1 or 2)>
 ```
 
 ## To submit:
-----------
 Create a tag named "submission" when you are ready to submit. You can use the following command or the github interface to do so.
 
 ``` bash
