@@ -1,0 +1,9 @@
+1635961532.570129
+Id:1 | Starting monitor on ('localhost', 8001).
+
+File Size					: 578317 bytes
+Total Bytes Transmitted		: 584661 bytes
+Overhead					: 6344 bytes
+Number of Packets sent		: 594
+Total Time					: 3.49 secs
+Goodput					: 165599.84 bytes/sec
