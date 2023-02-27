@@ -69,5 +69,3 @@ Finally, make sure to use the tag while pushing the code to the repository for s
 **Do not submit any binaries. Your git repo should only contain source files; no products of compilation.**
 
 **Once you submit your grade will be given in "grade.txt" file in the branch 'grade'. It might take a few minutes for the branch to show up.**
-
-----------------
