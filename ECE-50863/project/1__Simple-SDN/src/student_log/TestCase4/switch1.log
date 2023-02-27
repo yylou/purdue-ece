@@ -1,0 +1,36 @@
+
+
+11:22:26.450243
+Register Request Sent
+
+
+11:22:26.470826
+Register Response Received
+
+
+11:22:26.481015
+Routing Update
+1,0:0
+1,1:1
+1,2:2
+Routing Complete
+
+
+11:22:32.470827
+Neighbor Dead 2
+
+
+11:22:32.486440
+Routing Update
+1,0:0
+1,1:1
+1,2:0
+Routing Complete
+
+
+11:22:32.516917
+Routing Update
+1,0:0
+1,1:1
+1,2:0
+Routing Complete

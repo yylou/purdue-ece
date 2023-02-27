@@ -1,0 +1,77 @@
+
+
+11:21:55.373788
+Register Request 0
+
+
+11:21:55.385433
+Register Request 1
+
+
+11:21:55.390554
+Register Request 2
+
+
+11:21:55.390583
+Register Response 0
+Register Response 1
+Register Response 2
+
+
+11:21:55.390737
+Routing Update
+0,0:0,9999
+0,1:1,20
+0,2:1,20
+1,0:0,20
+1,1:1,9999
+1,2:2,30
+2,0:1,20
+2,1:1,30
+2,2:2,9999
+Routing Complete
+
+
+11:22:15.411843
+Switch Dead 2
+
+
+11:22:15.412079
+Routing Update
+0,0:0,9999
+0,1:1,20
+0,2:-1,0
+1,0:0,20
+1,1:1,9999
+1,2:-1,0
+Routing Complete
+
+
+11:22:15.412285
+Link Dead 1,2
+
+
+11:22:15.412308
+Routing Update
+0,0:0,9999
+0,1:1,20
+0,2:-1,0
+1,0:0,20
+1,1:1,9999
+1,2:-1,0
+Routing Complete
+
+
+11:22:15.412451
+Link Dead 0,2
+
+
+11:22:15.412471
+Routing Update
+0,0:0,9999
+0,1:1,20
+0,2:-1,0
+1,0:0,20
+1,1:1,9999
+1,2:-1,0
+Routing Complete
