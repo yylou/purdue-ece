@@ -24,24 +24,24 @@
   * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8)
   * **```60%```** [**Project**](https://docs.google.com/spreadsheets/d/106mGXUgaOzmoV044iW7WO3dy7T7VuiBGWyQejD0Zhl8/edit#gid=0)
     > ```
-    > Title:    Understanding the Performance-fairness Trade-offs for Pre-training Federated Learning
+    > Title:    Understanding the Robustness of Pre-training for Federated Learning
     > Member:   Yun-Wei Chu, Yuan-Yao Lou, Chih-Hsing Ho
     > Template: https://www.ieee.org/conferences/publishing/templates.html
     > ```
 
     > * [**Proposal**](https://docs.google.com/spreadsheets/d/13IzV9mz9zrxV30mV95UXKtiNcUnJssBR-czkruXEIBA/edit#gid=0) (5 minuts presentation + 3-pages double-column report)
     > ```
-    > 1. What research TOPIC your team would like to work on or survey?
-    > 2. What is the MOTIVATION of this research? Any APPLICATIONS?
-    > 3. What is the STATE-OF-ART research on this topic? Is there any limitation/weakness of them?
-    > 4. You report needs to present briefly your PLAN and TIMELINE on how to accomplish the project.
-    > 5. You need to cite the RELATED WORK of your project mentioned in the report.
+    > 1. What research topic your team would like to work on or survey?
+    > 2. What is the motivation of this research? Any applications?
+    > 3. What is the State of the Art (SOTA) research on this topic? Is there any limitation/weakness of them?
+    > 4. You report needs to present briefly your plan and timeline on how to accomplish the project.
+    > 5. You need to cite the related works of your project mentioned in the report.
     > ```
-    > * **Final Report** (7-pages for 3-people)
+    > * **Final Report** (7-pages double-column report)
     > ```
-    > 1. 
-    > 2. 
-    > 3. 
+    > 1. Recap problem statement of the research project.
+    > 2. Focus on methogology, system architecture, implementation, and the evaluation approaches.
+    > 3. Explain the research findings through the experimental results.
     > ```
   
 <br />
@@ -53,7 +53,9 @@
   * **Peer evaluation**
     > * Forms ```x20```
   * **Paper presentation**
-    > * **```0309```** [2022__MobiCom-NN-on-Device__present.pdf](#)
+    > * **```0309```**
   * **Project**
     > * **```0228```** Proposal slides
     > * **```0305```** Proposal report
+    > * **```0425```** Final presentation
+    > * **```0506```** Proposal report
