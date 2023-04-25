@@ -1,7 +1,7 @@
 ## ECE 69500 IoT - Advanced IoT Design and Applications
 
 * ### Grading policy
-  * **```10%```** **Paper review** (x2)
+  * **```10%```** [**Paper review**](https://docs.google.com/spreadsheets/d/1A1qAF9cIAwDyDGS6gT8t_i145R8hygVCzgcJHRVeBIQ/edit?usp=sharing) (x2)
     > ```
     > Yincheng Jin, Yang Gao, Xuhai Xu, Seokmin Choi, Jiyang Li, Feng Liu, Zhengxiong Li, and Zhanpeng Jin
     > EarCommand: "Hearing" Your Silent Speech Commands In Ear
@@ -53,7 +53,7 @@
   * **Peer evaluation**
     > * Evaluation forms ```x20```
   * **Paper presentation**
-    > * **```0309```**
+    > * **```0309```** 
   * **Project**
     > * **```0228```** Proposal slides
     > * **```0305```** Proposal report
