@@ -1,7 +1,7 @@
 ## ECE 69500 IoT - Advanced IoT Design and Applications
 
 * ### Grading policy
-  * **```10%```** [**Paper review**](https://docs.google.com/spreadsheets/d/1A1qAF9cIAwDyDGS6gT8t_i145R8hygVCzgcJHRVeBIQ/edit?usp=sharing) (x2)
+  * **```10%```** **Paper review** (x2)
     > ```
     > Yincheng Jin, Yang Gao, Xuhai Xu, Seokmin Choi, Jiyang Li, Feng Liu, Zhengxiong Li, and Zhanpeng Jin
     > EarCommand: "Hearing" Your Silent Speech Commands In Ear
@@ -22,14 +22,14 @@
     > https://doi.org/10.1145/3495243.3560551
     > ```
   * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8)
-  * **```60%```** [**Project**](https://docs.google.com/spreadsheets/d/106mGXUgaOzmoV044iW7WO3dy7T7VuiBGWyQejD0Zhl8/edit#gid=0)
+  * **```60%```** **Project**
     > ```
     > Title:    Understanding the Robustness of Pre-training for Federated Learning
     > Member:   Yun-Wei Chu, Yuan-Yao Lou, Chih-Hsing Ho
     > Template: https://www.ieee.org/conferences/publishing/templates.html
     > ```
 
-    > * [**Proposal**](https://docs.google.com/spreadsheets/d/13IzV9mz9zrxV30mV95UXKtiNcUnJssBR-czkruXEIBA/edit#gid=0) (5 minuts presentation + 3-pages double-column report)
+    > * **Proposal** (5 minuts presentation + 3-pages double-column report)
     > ```
     > 1. What research topic your team would like to work on or survey?
     > 2. What is the motivation of this research? Any applications?
