@@ -51,7 +51,7 @@
     > * **```0209```** [2022__UbiComp-EarCommand__review.pdf](./2022__UbiComp-EarCommand__review.pdf)
     > * **```0427```** [2022__UbiComp-ColloSSL__review.pdf](./2022__UbiComp-ColloSSL__review.pdf)
   * **Peer evaluation**
-    > * Forms ```x20```
+    > * Evaluation forms ```x20```
   * **Paper presentation**
     > * **```0309```**
   * **Project**
