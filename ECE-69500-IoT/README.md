@@ -1,7 +1,7 @@
 ## ECE 69500 IoT - Advanced IoT Design and Applications
 
 * ### Grading policy
-  * **```10%```** [**Paper review**](https://docs.google.com/spreadsheets/d/1A1qAF9cIAwDyDGS6gT8t_i145R8hygVCzgcJHRVeBIQ/edit?usp=sharing) (x2)
+  * **```10%```** **Paper review** (x2)
     > ```
     > Yincheng Jin, Yang Gao, Xuhai Xu, Seokmin Choi, Jiyang Li, Feng Liu, Zhengxiong Li, and Zhanpeng Jin
     > EarCommand: "Hearing" Your Silent Speech Commands In Ear
@@ -21,7 +21,7 @@
     > Association for Computing Machinery, New York, NY, USA, 200–213
     > https://doi.org/10.1145/3495243.3560551
     > ```
-  * **```10%```** [**Peer evaluation**](https://forms.gle/FNo9Xiib6zefbdip8)
+  * **```10%```** **Peer evaluation** ```x20```
   * **```60%```** **Project**
     > ```
     > Title:    Understanding the Robustness of Pre-training for Federated Learning
